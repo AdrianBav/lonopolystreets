@@ -19,7 +19,7 @@
                 <search-filters></search-filters>
 
                 <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
-                    <deck></deck>
+                    <property-cards></property-cards>
                 </main>
 
             </div>
