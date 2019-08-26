@@ -15,6 +15,7 @@ class CreateStreetsTable extends Migration
     {
         Schema::create('streets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('slug')->unique();
 
             $table->string('name');
             $table->string('borough')->nullable();

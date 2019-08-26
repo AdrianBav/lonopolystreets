@@ -4,7 +4,7 @@ return [
 
     [
         'name' => 'Brown Group',
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam distinctio dolor et, perspiciatis possimus reprehenderit culpa illo commodi, harum adipisci delectus cum non, iste in qui nihil earum nesciunt tempora.',
+        'description' => "Old Kent Road is the only location south of the River Thames; also the only one both outside and more than one tube stop away from the Circle line.",
         'streets' => [
             [
                 'name' => 'Old Kent Road',
@@ -21,7 +21,7 @@ return [
 
     [
         'name' => 'Light Blue Group',
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam distinctio dolor et, perspiciatis possimus reprehenderit culpa illo commodi, harum adipisci delectus cum non, iste in qui nihil earum nesciunt tempora.',
+        'description' => "All part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
         'streets' => [
             [
                 'name' => 'The Angel Islington',
@@ -41,298 +41,171 @@ return [
         ],
     ],
 
-    /*
-
     [
-        'name' => 'Kings Cross Station',
-        'price' => 200,
-        'type' => 'Station',
-        'borough' => 'Camden',
-        'postcode' => 'N1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-            ['filename' => 'photo2.jpg', 'features' => ['Bingo', 'Road']],
-            ['filename' => 'photo2.jpg', 'features' => ['Cash Point', 'Road']],
-            ['filename' => 'photo3.jpg', 'features' => ['Street Sign']],
+        'name' => 'Pink Group',
+        'description' => "All converge at Trafalgar Square.",
+        'streets' => [
+            [
+                'name' => 'Pall Mall',
+                'borough' => 'Westminster',
+                'postcode' => 'SW1',
+            ],
+            [
+                'name' => 'Whitehall',
+                'borough' => 'Westminster',
+                'postcode' => 'SW1',
+            ],
+            [
+                'name' => 'Northumberland Avenue',
+                'borough' => 'Westminster',
+                'postcode' => 'WC2',
+            ],
         ],
     ],
 
     [
-        'name' => 'Pall Mall',
-        'color' => 'Pink',
-        'price' => 140,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'SW1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Orange Group',
+        'description' => "All related to locations dealing with the police and law. There is no actual Marlborough Street in this part of London; the square on the board was mis-named after the Marlborough Street Magistrates Court.",
+        'streets' => [
+            [
+                'name' => 'Bow Street',
+                'borough' => 'Westminster',
+                'postcode' => 'WC2',
+            ],
+            [
+                'name' => 'Marlborough Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
+            [
+                'name' => 'Vine Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
         ],
     ],
 
     [
-        'name' => 'Electric Company',
-        'price' => 150,
-        'type' => 'Utility',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Red Group',
+        'description' => "All adjacent to each other as part of the A4 road, a major road running west from Central London.",
+        'streets' => [
+            [
+                'name' => 'Strand',
+                'borough' => 'Westminster',
+                'postcode' => 'WC2',
+            ],
+            [
+                'name' => 'Fleet Street',
+                'borough' => 'Westminster',
+                'postcode' => 'EC4',
+            ],
+            [
+                'name' => 'Trafalgar Square',
+                'borough' => 'Westminster',
+                'postcode' => 'WC2',
+            ],
         ],
     ],
 
     [
-        'name' => 'Whitehall',
-        'color' => 'Pink',
-        'price' => 140,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'SW1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Yellow Group',
+        'description' => "All have an entertainment and nightlife-based theme; Leicester Square is known for cinemas and theatres, Coventry Street for clubs and restaurants, and Piccadilly for hotels.",
+        'streets' => [
+            [
+                'name' => 'Leicester Square',
+                'borough' => 'Westminster',
+                'postcode' => 'WC2',
+            ],
+            [
+                'name' => 'Coventry Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
+            [
+                'name' => 'Piccadilly',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
         ],
     ],
 
     [
-        'name' => 'Northumberland Avenue',
-        'color' => 'Pink',
-        'price' => 160,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'WC2',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Green Group',
+        'description' => "All have a background in retail and commercial properties. There is no actual Bond Street; it is split into New Bond Street to the north and Old Bond Street to the south.",
+        'streets' => [
+            [
+                'name' => 'Regent Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
+            [
+                'name' => 'Oxford Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
+            [
+                'name' => 'Bond Street',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
         ],
     ],
 
     [
-        'name' => 'Marylebone Station',
-        'price' => 200,
-        'type' => 'Station',
-        'borough' => 'Westminster',
-        'postcode' => 'NW1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Dark Blue Group',
+        'description' => "Mayfair is not a street, but a location in London (between Piccadilly, Regent Street, Oxford Street and Park Lane). The most expensive square on the board, and in reality.",
+        'streets' => [
+            [
+                'name' => 'Park Lane',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
+            [
+                'name' => 'Mayfair',
+                'borough' => 'Westminster',
+                'postcode' => 'W1',
+            ],
         ],
     ],
 
     [
-        'name' => 'Bow Street',
-        'color' => 'Orange',
-        'price' => 180,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'WC2',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Stations',
+        'description' => "The four London termini of the London and North Eastern Railway, principally King's Cross, which served Waddingtons' home town of Leeds.",
+        'streets' => [
+            [
+                'name' => 'Kings Cross Station',
+                'borough' => 'Camden',
+                'postcode' => 'N1',
+            ],
+            [
+                'name' => 'Marylebone Station',
+                'borough' => 'Westminster',
+                'postcode' => 'NW1',
+            ],
+            [
+                'name' => 'Fenchurch Street Station',
+                'borough' => 'City of London',
+                'postcode' => 'EC3',
+            ],
+            [
+                'name' => 'Liverpool Street Station',
+                'borough' => 'Tower Hamlets',
+                'postcode' => 'EC2',
+            ],
         ],
     ],
 
     [
-        'name' => 'Marlborough Street',
-        'color' => 'Orange',
-        'price' => 180,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
+        'name' => 'Utilities',
+        'description' => "Non-specific locations.",
+        'streets' => [
+            [
+                'name' => 'Electric Company',
+            ],
+            [
+                'name' => 'Water Works',
+            ],
         ],
     ],
-
-    [
-        'name' => 'Vine Street',
-        'color' => 'Orange',
-        'price' => 200,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Strand',
-        'color' => 'Red',
-        'price' => 220,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'WC2',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Fleet Street',
-        'color' => 'Red',
-        'price' => 220,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'EC4',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Trafalgar Square',
-        'color' => 'Red',
-        'price' => 240,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'WC2',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Fenchurch Street Station',
-        'price' => 200,
-        'type' => 'Station',
-        'borough' => 'City of London',
-        'postcode' => 'EC3M',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Leicester Square',
-        'color' => 'Yellow',
-        'price' => 260,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Coventry Street',
-        'color' => 'Yellow',
-        'price' => 260,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Water Works',
-        'price' => 150,
-        'type' => 'Utility',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Piccadilly',
-        'color' => 'Yellow',
-        'price' => 280,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Regent Street',
-        'color' => 'Green',
-        'price' => 300,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Oxford Street',
-        'color' => 'Green',
-        'price' => 300,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Bond Street',
-        'color' => 'Green',
-        'price' => 320,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Liverpool Street Station',
-        'price' => 200,
-        'type' => 'Station',
-        'borough' => 'Tower Hamlets',
-        'postcode' => 'EC2M',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Park Lane',
-        'color' => 'Dark Blue',
-        'price' => 350,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Mayfair',
-        'color' => 'Dark Blue',
-        'price' => 400,
-        'type' => 'Property',
-        'borough' => 'Westminster',
-        'postcode' => 'W1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],*/
 
 ];

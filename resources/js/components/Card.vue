@@ -2,7 +2,7 @@
     <div>
 
         <div class="relative pb-5/6">
-            <img class="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover" src="https://images.unsplash.com/photo-1447169685565-fedaa08420df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80" alt="">
+            <img class="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover" :src="street.thumbnail" :alt="street.name">
         </div>
 
         <div class="relative px-4 -mt-16">

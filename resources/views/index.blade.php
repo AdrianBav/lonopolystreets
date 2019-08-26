@@ -19,7 +19,7 @@
                 <search-filters></search-filters>
 
                 <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
-                    <property-cards :groups='@json($groups)'></property-cards>
+                    <deck :groups='@json($groups)'></deck>
                 </main>
 
             </div>
