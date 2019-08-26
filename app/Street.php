@@ -32,11 +32,10 @@ class Street extends BaseModel
      */
     public function getThumbnailAttribute()
     {
-        $defaultFilename = 'https://via.placeholder.com/1355x897';
+        $filename = sprintf('images/streets/%s.jpg', $this->slug);
 
-        // look for the thumbnail in a known location
-        $filename = sprintf('thumbs/%s.jpg', $this->slug);
-
-        return ($filename == 'OK') ? $filename : $defaultFilename;
+        return file_exists(public_path($filename))
+            ? asset($filename)
+            : 'https://via.placeholder.com/1355x897';
     }
 }
