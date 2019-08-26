@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Property extends BaseModel
+class Photo extends BaseModel
 {
     //
 }
