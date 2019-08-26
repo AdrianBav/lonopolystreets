@@ -3,31 +3,45 @@
 return [
 
     [
-        'name' => 'Old Kent Road',
-        'color' => 'Brown',
-        'price' => 60,
-        'type' => 'Property',
-        'borough' => 'Southwark',
-        'postcode' => 'SE1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['House', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Street Sign']],
-            ['filename' => 'photo3.jpg', 'features' => ['Betting Shop', 'Road']],
+        'name' => 'Brown Group',
+        'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam distinctio dolor et, perspiciatis possimus reprehenderit culpa illo commodi, harum adipisci delectus cum non, iste in qui nihil earum nesciunt tempora.',
+        'streets' => [
+            [
+                'name' => 'Old Kent Road',
+                'borough' => 'Southwark',
+                'postcode' => 'SE1',
+            ],
+            [
+                'name' => 'Whitechapel',
+                'borough' => 'Tower Hamlets',
+                'postcode' => 'E1',
+            ],
         ],
     ],
 
     [
-        'name' => 'Whitechapel',
-        'color' => 'Brown',
-        'price' => 60,
-        'type' => 'Property',
-        'borough' => 'Tower Hamlets',
-        'postcode' => 'E1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo3.jpg', 'features' => ['Street Sign']],
+        'name' => 'Light Blue Group',
+        'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam distinctio dolor et, perspiciatis possimus reprehenderit culpa illo commodi, harum adipisci delectus cum non, iste in qui nihil earum nesciunt tempora.',
+        'streets' => [
+            [
+                'name' => 'The Angel Islington',
+                'borough' => 'Islington',
+                'postcode' => 'N1',
+            ],
+            [
+                'name' => 'Euston Road',
+                'borough' => 'Camden',
+                'postcode' => 'NW1',
+            ],
+            [
+                'name' => 'Pentonville Road',
+                'borough' => 'Islington',
+                'postcode' => 'N1',
+            ],
         ],
     ],
+
+    /*
 
     [
         'name' => 'Kings Cross Station',
@@ -41,46 +55,6 @@ return [
             ['filename' => 'photo2.jpg', 'features' => ['Bingo', 'Road']],
             ['filename' => 'photo2.jpg', 'features' => ['Cash Point', 'Road']],
             ['filename' => 'photo3.jpg', 'features' => ['Street Sign']],
-        ],
-    ],
-
-    [
-        'name' => 'The Angel Islington',
-        'color' => 'Light Blue',
-        'price' => 100,
-        'type' => 'Property',
-        'borough' => 'Islington',
-        'postcode' => 'N1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-            ['filename' => 'photo3.jpg', 'features' => ['Street Sign']],
-        ],
-    ],
-
-    [
-        'name' => 'Euston Road',
-        'color' => 'Light Blue',
-        'price' => 100,
-        'type' => 'Property',
-        'borough' => 'Camden',
-        'postcode' => 'NW1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
-        ],
-    ],
-
-    [
-        'name' => 'Pentonville Road',
-        'color' => 'Light Blue',
-        'price' => 120,
-        'type' => 'Property',
-        'borough' => 'Islington',
-        'postcode' => 'N1',
-        'photos' => [
-            ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
-            ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
         ],
     ],
 
@@ -359,6 +333,6 @@ return [
             ['filename' => 'photo1.jpg', 'features' => ['Shop', 'Road', 'Cars']],
             ['filename' => 'photo2.jpg', 'features' => ['Church', 'Road']],
         ],
-    ],
+    ],*/
 
 ];

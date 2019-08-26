@@ -19,7 +19,7 @@
                 <search-filters></search-filters>
 
                 <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
-                    <property-cards :locations='@json($locations)'></property-cards>
+                    <property-cards :groups='@json($groups)'></property-cards>
                 </main>
 
             </div>

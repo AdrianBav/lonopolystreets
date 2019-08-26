@@ -15,18 +15,13 @@ class CreateStreetsTable extends Migration
     {
         Schema::create('streets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('slug');
 
             $table->string('name');
-            $table->string('color')->nullable();
-            $table->smallInteger('price');
-
-            $table->string('type');
-
             $table->string('borough')->nullable();
             $table->string('postcode')->nullable();
 
-            $table->json('features')->nullable();
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('groups');
         });
     }
 

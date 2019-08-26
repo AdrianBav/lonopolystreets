@@ -177,31 +177,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["property"],
-  computed: {
-    formattedPrice: function formattedPrice() {
-      var formatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-      });
-      return formatter.format(this.property.price / 100);
-    }
-  }
+  props: ["street"]
 });
 
 /***/ }),
@@ -242,7 +219,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     PropertyCard: _PropertyCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ["locations"]
+  props: ["groups"]
 });
 
 /***/ }),
@@ -1036,102 +1013,54 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "relative pb-5/6" }, [
-      _c("img", {
-        staticClass:
-          "absolute inset-0 h-full w-full rounded-lg shadow-md object-cover",
-        attrs: { src: _vm.property.imageUrl, alt: "" }
-      })
-    ]),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "relative px-4 -mt-16" }, [
-      _c("div", { staticClass: "bg-white rounded-lg px-4 py-4 shadow-lg" }, [
-        _c("div", { staticClass: "flex items-baseline" }, [
+      _c(
+        "div",
+        { staticClass: "bg-white rounded-lg px-4 py-4 shadow-lg uppercase" },
+        [
           _c(
-            "span",
+            "h4",
             {
               staticClass:
-                "inline-block px-2 py-1 leading-none bg-teal-200 text-teal-800 rounded-full font-semibold uppercase tracking-wide text-xs"
+                "mt-1 text-gray-900 font-semibold text-lg inline-block"
             },
-            [_vm._v("Plus")]
+            [_vm._v(_vm._s(_vm.street.name))]
           ),
           _vm._v(" "),
-          _c(
-            "div",
-            {
-              staticClass:
-                "ml-2 text-xs text-gray-600 font-semibold uppercase tracking-wide"
-            },
-            [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.property.beds) +
-                  " " +
-                  _vm._s(_vm.property.beds === 1 ? "bed" : "beds") +
-                  " • " +
-                  _vm._s(_vm.property.baths) +
-                  " " +
-                  _vm._s(_vm.property.baths === 1 ? "bath" : "baths") +
-                  "\n                "
-              )
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("h4", { staticClass: "mt-1 text-gray-900 font-semibold text-lg" }, [
-          _vm._v(_vm._s(_vm.property.title))
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-1" }, [
-          _c("span", { staticClass: "text-gray-900" }, [
-            _vm._v(_vm._s(_vm.formattedPrice))
+          _c("span", { staticClass: "text-red-700" }, [
+            _vm._v(_vm._s(_vm.street.postcode))
           ]),
           _vm._v(" "),
-          _c("span", { staticClass: "ml-1 text-sm text-gray-600" }, [
-            _vm._v("/wk")
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "mt-2 flex items-center text-sm text-gray-600" },
-          [
-            _vm._l(5, function(i) {
-              return _c(
-                "svg",
-                {
-                  staticClass: "h-4 w-4 fill-current",
-                  class:
-                    _vm.property.rating >= i
-                      ? "text-teal-500"
-                      : "text-gray-400",
-                  attrs: {
-                    viewBox: "0 0 24 24",
-                    xmlns: "http://www.w3.org/2000/svg"
-                  }
-                },
-                [
-                  _c("path", {
-                    attrs: {
-                      d:
-                        "M8.128 19.825a1.586 1.586 0 0 1-1.643-.117 1.543 1.543 0 0 1-.53-.662 1.515 1.515 0 0 1-.096-.837l.736-4.247-3.13-3a1.514 1.514 0 0 1-.39-1.569c.09-.271.254-.513.475-.698.22-.185.49-.306.776-.35L8.66 7.73l1.925-3.862c.128-.26.328-.48.577-.633a1.584 1.584 0 0 1 1.662 0c.25.153.45.373.577.633l1.925 3.847 4.334.615c.29.042.562.162.785.348.224.186.39.43.48.704a1.514 1.514 0 0 1-.404 1.58l-3.13 3 .736 4.247c.047.282.014.572-.096.837-.111.265-.294.494-.53.662a1.582 1.582 0 0 1-1.643.117l-3.865-2-3.865 2z"
-                    }
-                  })
-                ]
-              )
-            }),
-            _vm._v(" "),
-            _c("span", { staticClass: "ml-2" }, [
-              _vm._v(_vm._s(_vm.property.reviewCount) + " reviews")
+          _c("div", { staticClass: "mt-2 border-t border-gray-900" }, [
+            _c("span", { staticClass: "text-red-700 text-xs tracking-wider" }, [
+              _vm._v(_vm._s(_vm.street.borough))
             ])
-          ],
-          2
-        )
-      ])
+          ])
+        ]
+      )
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "relative pb-5/6" }, [
+      _c("img", {
+        staticClass:
+          "absolute inset-0 h-full w-full rounded-lg shadow-md object-cover",
+        attrs: {
+          src:
+            "https://images.unsplash.com/photo-1447169685565-fedaa08420df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80",
+          alt: ""
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -1155,15 +1084,15 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.locations, function(location, i) {
+    _vm._l(_vm.groups, function(group, i) {
       return _c("div", { class: { "mt-6": i > 0 } }, [
         _c("div", { staticClass: "px-4 xl:px-8" }, [
           _c("h3", { staticClass: "text-gray-900 text-xl" }, [
-            _vm._v(_vm._s(location.title))
+            _vm._v(_vm._s(group.name))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-gray-600" }, [
-            _vm._v(_vm._s(location.description))
+            _vm._v(_vm._s(group.description))
           ])
         ]),
         _vm._v(" "),
@@ -1174,14 +1103,14 @@ var render = function() {
             _c(
               "div",
               { staticClass: "px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8" },
-              _vm._l(location.properties, function(property, i) {
+              _vm._l(group.streets, function(street, i) {
                 return _c(
                   "div",
                   {
                     staticClass: "sm:mt-0 sm:w-80 sm:flex-shrink-0",
                     class: { "mt-10 sm:ml-4": i > 0 }
                   },
-                  [_c("property-card", { attrs: { property: property } })],
+                  [_c("property-card", { attrs: { street: street } })],
                   1
                 )
               }),
