@@ -8,12 +8,12 @@ return [
         'streets' => [
             [
                 'name' => 'Old Kent Road',
-                'borough' => 'Southwark',
+                'borough' => 'London Borough of Southwark',
                 'postcode' => 'SE1',
             ],
             [
                 'name' => 'Whitechapel',
-                'borough' => 'Tower Hamlets',
+                'borough' => 'London Borough of Tower Hamlets',
                 'postcode' => 'E1',
             ],
         ],
@@ -25,17 +25,17 @@ return [
         'streets' => [
             [
                 'name' => 'The Angel Islington',
-                'borough' => 'Islington',
+                'borough' => 'London Borough of Islington',
                 'postcode' => 'N1',
             ],
             [
                 'name' => 'Euston Road',
-                'borough' => 'Camden',
+                'borough' => 'London Borough of Camden',
                 'postcode' => 'NW1',
             ],
             [
                 'name' => 'Pentonville Road',
-                'borough' => 'Islington',
+                'borough' => 'London Borough of Islington',
                 'postcode' => 'N1',
             ],
         ],
@@ -47,17 +47,17 @@ return [
         'streets' => [
             [
                 'name' => 'Pall Mall',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'SW1',
             ],
             [
                 'name' => 'Whitehall',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'SW1',
             ],
             [
                 'name' => 'Northumberland Avenue',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'WC2',
             ],
         ],
@@ -69,17 +69,17 @@ return [
         'streets' => [
             [
                 'name' => 'Bow Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'WC2',
             ],
             [
                 'name' => 'Marlborough Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
             [
                 'name' => 'Vine Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
         ],
@@ -91,17 +91,17 @@ return [
         'streets' => [
             [
                 'name' => 'Strand',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'WC2',
             ],
             [
                 'name' => 'Fleet Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'EC4',
             ],
             [
                 'name' => 'Trafalgar Square',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'WC2',
             ],
         ],
@@ -113,17 +113,17 @@ return [
         'streets' => [
             [
                 'name' => 'Leicester Square',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'WC2',
             ],
             [
                 'name' => 'Coventry Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
             [
                 'name' => 'Piccadilly',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
         ],
@@ -135,17 +135,17 @@ return [
         'streets' => [
             [
                 'name' => 'Regent Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
             [
                 'name' => 'Oxford Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
             [
                 'name' => 'Bond Street',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
         ],
@@ -157,12 +157,12 @@ return [
         'streets' => [
             [
                 'name' => 'Park Lane',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
             [
                 'name' => 'Mayfair',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'W1',
             ],
         ],
@@ -174,12 +174,12 @@ return [
         'streets' => [
             [
                 'name' => 'Kings Cross Station',
-                'borough' => 'Camden',
+                'borough' => 'London Borough of Camden',
                 'postcode' => 'N1',
             ],
             [
                 'name' => 'Marylebone Station',
-                'borough' => 'Westminster',
+                'borough' => 'City of Westminster',
                 'postcode' => 'NW1',
             ],
             [
@@ -189,7 +189,7 @@ return [
             ],
             [
                 'name' => 'Liverpool Street Station',
-                'borough' => 'Tower Hamlets',
+                'borough' => 'London Borough of Tower Hamlets',
                 'postcode' => 'EC2',
             ],
         ],

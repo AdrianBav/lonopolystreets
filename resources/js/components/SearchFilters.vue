@@ -24,18 +24,6 @@
 
                 <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full">
                     <div class="flex flex-wrap -mx-2">
-                        <label class="block w-1/2 px-2 sm:w-1/4 lg:w-1/2">
-                            <span class="text-sm font-semibold text-gray-500">Bedrooms</span>
-                            <select class="mt-1 form-select block w-full text-white shadow focus:bg-gray-600">
-                                <option>4</option>
-                            </select>
-                        </label>
-                        <label class="block w-1/2 px-2 sm:w-1/4 lg:w-1/2">
-                            <span class="text-sm font-semibold text-gray-500">Bathrooms</span>
-                            <select class="mt-1 form-select block w-full text-white shadow focus:bg-gray-600">
-                                <option>2</option>
-                            </select>
-                        </label>
                         <label class="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
                             <span class="text-sm font-semibold text-gray-500">Price Range</span>
                             <select class="mt-1 form-select block w-full text-white shadow focus:bg-gray-600">
@@ -50,60 +38,36 @@
                     <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="house">
-                            <span class="ml-2 text-white">House</span>
+                            <span class="ml-2 text-white">All</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="apartment">
-                            <span class="ml-2 text-white">Apartment</span>
+                            <span class="ml-2 text-white">Property</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="loft">
-                            <span class="ml-2 text-white">Loft</span>
+                            <span class="ml-2 text-white">Station</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
                             <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="townhouse">
-                            <span class="ml-2 text-white">Townhouse</span>
+                            <span class="ml-2 text-white">Utility</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
-                    <span class="block text-sm font-semibold text-gray-500">Amenities</span>
+                    <span class="block text-sm font-semibold text-gray-500">Postcode</span>
                     <div class="sm:flex sm:-mx-2 sm:flex-wrap">
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="balcony">
-                            <span class="ml-2 text-white">Balcony</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="pool">
-                            <span class="ml-2 text-white">Pool</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="beach">
-                            <span class="ml-2 text-white">Beach</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="petFriendly">
-                            <span class="ml-2 text-white">Pet friendly</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="kidFriendly">
-                            <span class="ml-2 text-white">Kid friendly</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="parking">
-                            <span class="ml-2 text-white">Parking</span>
-                        </label>
-                        <label class="mt-3 flex items-center sm:w-1/2 sm:px-2 lg:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="airConditioning">
-                            <span class="ml-2 text-white">Air conditioning</span>
+                        <label v-for="(postcode, i) in postcodes" class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" :name="postcode">
+                            <span class="ml-2 text-white">{{ postcode }}</span>
                         </label>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-gray-900 px-4 py-4 sm:text-right">
-                <button class="block w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg xl:block xl:w-full">Update results</button>
+            <div class="bg-gray-900 text-white text-xs px-4 py-4">
+                Copyright &copy; 2002 - {{ currentYear }} Bavanco
             </div>
         </form>
 
@@ -113,12 +77,20 @@
 <script>
     export default {
 
-        props: [],
+        props: [
+            "postcodes",
+        ],
 
         data() {
             return {
                 isOpen: false,
             };
+        },
+
+        computed: {
+            currentYear: function() {
+                return ( new Date() ).getFullYear();
+            },
         },
 
         methods: {

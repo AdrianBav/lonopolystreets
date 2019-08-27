@@ -309,48 +309,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
+  props: ["postcodes"],
   data: function data() {
     return {
       isOpen: false
     };
+  },
+  computed: {
+    currentYear: function currentYear() {
+      return new Date().getFullYear();
+    }
   },
   methods: {
     toggle: function toggle() {
@@ -1213,7 +1182,62 @@ var render = function() {
           "xl:block xl:h-full xl:flex xl:flex-col xl:justify-between",
         class: { hidden: !_vm.isOpen, block: _vm.isOpen }
       },
-      [_vm._m(0), _vm._v(" "), _vm._m(1)]
+      [
+        _c("div", { staticClass: "lg:flex xl:block xl:overflow-y-auto" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass:
+                "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
+            },
+            [
+              _c(
+                "span",
+                { staticClass: "block text-sm font-semibold text-gray-500" },
+                [_vm._v("Postcode")]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "sm:flex sm:-mx-2 sm:flex-wrap" },
+                _vm._l(_vm.postcodes, function(postcode, i) {
+                  return _c(
+                    "label",
+                    {
+                      staticClass:
+                        "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
+                    },
+                    [
+                      _c("input", {
+                        staticClass:
+                          "form-checkbox bg-gray-900 focus:bg-gray-700",
+                        attrs: { type: "checkbox", name: postcode }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "ml-2 text-white" }, [
+                        _vm._v(_vm._s(postcode))
+                      ])
+                    ]
+                  )
+                }),
+                0
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "bg-gray-900 text-white text-xs px-4 py-4" }, [
+          _vm._v(
+            "\n            Copyright © 2002 - " +
+              _vm._s(_vm.currentYear) +
+              " Bavanco\n        "
+          )
+        ])
+      ]
     )
   ])
 }
@@ -1222,20 +1246,25 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "lg:flex xl:block xl:overflow-y-auto" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full"
-        },
-        [
-          _c("div", { staticClass: "flex flex-wrap -mx-2" }, [
-            _c("label", { staticClass: "block w-1/2 px-2 sm:w-1/4 lg:w-1/2" }, [
+    return _c(
+      "div",
+      {
+        staticClass:
+          "px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full"
+      },
+      [
+        _c("div", { staticClass: "flex flex-wrap -mx-2" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full"
+            },
+            [
               _c(
                 "span",
                 { staticClass: "text-sm font-semibold text-gray-500" },
-                [_vm._v("Bedrooms")]
+                [_vm._v("Price Range")]
               ),
               _vm._v(" "),
               _c(
@@ -1244,304 +1273,112 @@ var staticRenderFns = [
                   staticClass:
                     "mt-1 form-select block w-full text-white shadow focus:bg-gray-600"
                 },
-                [_c("option", [_vm._v("4")])]
+                [_c("option", [_vm._v("Up to $2,000/wk")])]
               )
-            ]),
-            _vm._v(" "),
-            _c("label", { staticClass: "block w-1/2 px-2 sm:w-1/4 lg:w-1/2" }, [
-              _c(
-                "span",
-                { staticClass: "text-sm font-semibold text-gray-500" },
-                [_vm._v("Bathrooms")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass:
-                    "mt-1 form-select block w-full text-white shadow focus:bg-gray-600"
-                },
-                [_c("option", [_vm._v("2")])]
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full"
-              },
-              [
-                _c(
-                  "span",
-                  { staticClass: "text-sm font-semibold text-gray-500" },
-                  [_vm._v("Price Range")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    staticClass:
-                      "mt-1 form-select block w-full text-white shadow focus:bg-gray-600"
-                  },
-                  [_c("option", [_vm._v("Up to $2,000/wk")])]
-                )
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
-        },
-        [
-          _c(
-            "span",
-            { staticClass: "block text-sm font-semibold text-gray-500" },
-            [_vm._v("Property Type")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "sm:flex sm:-mx-2 lg:block lg:mx-0" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "radio", name: "propertyType", value: "house" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("House")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                  attrs: {
-                    type: "radio",
-                    name: "propertyType",
-                    value: "apartment"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Apartment")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "radio", name: "propertyType", value: "loft" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [_vm._v("Loft")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                  attrs: {
-                    type: "radio",
-                    name: "propertyType",
-                    value: "townhouse"
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Townhouse")
-                ])
-              ]
-            )
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass:
-            "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
-        },
-        [
-          _c(
-            "span",
-            { staticClass: "block text-sm font-semibold text-gray-500" },
-            [_vm._v("Amenities")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "sm:flex sm:-mx-2 sm:flex-wrap" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "balcony" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Balcony")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "pool" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [_vm._v("Pool")])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "beach" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Beach")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "petFriendly" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Pet friendly")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "kidFriendly" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Kid friendly")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "parking" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Parking")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "mt-3 flex items-center sm:w-1/2 sm:px-2 lg:w-full"
-              },
-              [
-                _c("input", {
-                  staticClass: "form-checkbox bg-gray-900 focus:bg-gray-700",
-                  attrs: { type: "checkbox", name: "airConditioning" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "ml-2 text-white" }, [
-                  _vm._v("Air conditioning")
-                ])
-              ]
-            )
-          ])
-        ]
-      )
-    ])
+            ]
+          )
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "bg-gray-900 px-4 py-4 sm:text-right" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "block w-full sm:w-auto sm:inline-block bg-indigo-500 hover:bg-indigo-400 font-semibold text-white px-4 py-2 rounded-lg xl:block xl:w-full"
-        },
-        [_vm._v("Update results")]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
+      },
+      [
+        _c(
+          "span",
+          { staticClass: "block text-sm font-semibold text-gray-500" },
+          [_vm._v("Property Type")]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sm:flex sm:-mx-2 lg:block lg:mx-0" }, [
+          _c(
+            "label",
+            {
+              staticClass:
+                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+            },
+            [
+              _c("input", {
+                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                attrs: { type: "radio", name: "propertyType", value: "house" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-white" }, [_vm._v("All")])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass:
+                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+            },
+            [
+              _c("input", {
+                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                attrs: {
+                  type: "radio",
+                  name: "propertyType",
+                  value: "apartment"
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-white" }, [
+                _vm._v("Property")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass:
+                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+            },
+            [
+              _c("input", {
+                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                attrs: { type: "radio", name: "propertyType", value: "loft" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-white" }, [
+                _vm._v("Station")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass:
+                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+            },
+            [
+              _c("input", {
+                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                attrs: {
+                  type: "radio",
+                  name: "propertyType",
+                  value: "townhouse"
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "ml-2 text-white" }, [
+                _vm._v("Utility")
+              ])
+            ]
+          )
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -14426,8 +14263,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /opt/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /opt/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /home/vagrant/Bavanco/monopolystreets/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/Bavanco/monopolystreets/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })
