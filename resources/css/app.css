@@ -60,3 +60,28 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+.brown-group {
+    color: #712321;
+}
+.light-blue-group {
+    color: #3671be;
+}
+.pink-group {
+    color: #b92768;
+}
+.orange-group {
+    color: #e1562a;
+}
+.red-group {
+    color: #da1e25;
+}
+.yellow-group {
+    color: #f5ea28;
+}
+.green-group {
+    color: #337024;
+}
+.dark-blue-group {
+    color: #263489;
+}

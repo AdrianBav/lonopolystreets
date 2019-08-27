@@ -3,7 +3,10 @@
         <div v-for="(group, i) in groups" :class="{'mt-6': i > 0}">
 
             <div class="px-4 xl:px-8">
-                <h3 class="text-gray-900 text-xl">{{ group.name }}</h3>
+                <div class="flex items-center">
+                    <span v-html="icon( group.name )"></span>
+                    <h3 class="text-gray-900 text-xl ml-2">{{ group.name }}</h3>
+                </div>
                 <p class="text-gray-600">{{ group.description }}</p>
             </div>
 
@@ -31,6 +34,26 @@
         props: [
             "groups",
         ],
+
+        methods: {
+            icon( groupName ) {
+                if ( groupName == "Utilities" ) {
+                    return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z"/></svg>';
+
+                } else if ( groupName == "Stations" ) {
+                    return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 18H8l-2 2H3l2-2a2 2 0 0 1-2-2V2c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2l2 2h-3l-2-2zM5 5v6h10V5H5zm1.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 2v1h4V2H8z"/></svg>';
+
+                } else {
+                    let iconColor = this.slugify( groupName );
+
+                    return `<svg class="h-4 w-4 fill-current ${iconColor}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm2 2v12h16V5H2z"/></svg>`;
+                }
+            },
+
+            slugify ( value ) {
+                return value.toString().toLowerCase().replace( /\s+/g, "-" );
+            },
+        },
 
     };
 </script>

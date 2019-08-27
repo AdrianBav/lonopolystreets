@@ -155,12 +155,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Card: _Card__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ["groups"]
+  props: ["groups"],
+  methods: {
+    icon: function icon(groupName) {
+      if (groupName == "Utilities") {
+        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z"/></svg>';
+      } else if (groupName == "Stations") {
+        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 18H8l-2 2H3l2-2a2 2 0 0 1-2-2V2c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2l2 2h-3l-2-2zM5 5v6h10V5H5zm1.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 2v1h4V2H8z"/></svg>';
+      } else {
+        var iconColor = this.slugify(groupName);
+        return "<svg class=\"h-4 w-4 fill-current ".concat(iconColor, "\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm2 2v12h16V5H2z\"/></svg>");
+      }
+    },
+    slugify: function slugify(value) {
+      return value.toString().toLowerCase().replace(/\s+/g, "-");
+    }
+  }
 });
 
 /***/ }),
@@ -340,7 +358,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Dropdown__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Dropdown */ "./resources/js/components/Dropdown.vue");
-//
 //
 //
 //
@@ -978,8 +995,14 @@ var render = function() {
     _vm._l(_vm.groups, function(group, i) {
       return _c("div", { class: { "mt-6": i > 0 } }, [
         _c("div", { staticClass: "px-4 xl:px-8" }, [
-          _c("h3", { staticClass: "text-gray-900 text-xl" }, [
-            _vm._v(_vm._s(group.name))
+          _c("div", { staticClass: "flex items-center" }, [
+            _c("span", {
+              domProps: { innerHTML: _vm._s(_vm.icon(group.name)) }
+            }),
+            _vm._v(" "),
+            _c("h3", { staticClass: "text-gray-900 text-xl ml-2" }, [
+              _vm._v(_vm._s(group.name))
+            ])
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "text-gray-600" }, [
@@ -1675,7 +1698,7 @@ var staticRenderFns = [
               "block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900 xl:hover:bg-gray-200",
             attrs: { href: "#" }
           },
-          [_vm._v("List your property")]
+          [_vm._v("About")]
         ),
         _vm._v(" "),
         _c(
@@ -1685,17 +1708,7 @@ var staticRenderFns = [
               "mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200",
             attrs: { href: "#" }
           },
-          [_vm._v("Trips")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass:
-              "mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200",
-            attrs: { href: "#" }
-          },
-          [_vm._v("Messages")]
+          [_vm._v("part of bavanco.co.uk")]
         )
       ]
     )
