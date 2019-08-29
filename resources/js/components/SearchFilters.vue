@@ -66,16 +66,20 @@
                 </div>
             </div>
 
-            <div class="bg-gray-900 text-white text-xs px-4 py-4">
-                Copyright &copy; 2002 - {{ currentYear }} Bavanco
-            </div>
+            <copyright class="hidden xl:block"></copyright>
         </form>
 
     </section>
 </template>
 
 <script>
+    import Copyright from "./Copyright";
+
     export default {
+
+        components: {
+            Copyright,
+        },
 
         props: [
             "postcodes",
@@ -85,12 +89,6 @@
             return {
                 isOpen: false,
             };
-        },
-
-        computed: {
-            currentYear: function() {
-                return ( new Date() ).getFullYear();
-            },
         },
 
         methods: {

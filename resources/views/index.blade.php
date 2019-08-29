@@ -22,6 +22,7 @@
                     <deck :groups='@json($groups)'></deck>
                 </main>
 
+                <copyright class="xl:hidden"></copyright>
             </div>
         </div>
 

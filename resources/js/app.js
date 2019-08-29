@@ -13,6 +13,7 @@ window.Vue = require('vue');
 
 Vue.component('card', require('./components/Card.vue').default);
 Vue.component('deck', require('./components/Deck.vue').default);
+Vue.component('copyright', require('./components/Copyright.vue').default);
 Vue.component('dropdown', require('./components/Dropdown.vue').default);
 Vue.component('search-filters', require('./components/SearchFilters.vue').default);
 Vue.component('site-header', require('./components/SiteHeader.vue').default);
