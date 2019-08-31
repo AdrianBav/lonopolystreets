@@ -869,10 +869,10 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "relative px-4 -mt-16" }, [
+    _c("div", { staticClass: "relative px-4 -mt-12" }, [
       _c(
         "div",
-        { staticClass: "bg-white rounded-lg px-4 py-4 shadow-lg uppercase" },
+        { staticClass: "bg-white rounded-lg px-4 py-2 shadow-lg uppercase" },
         [
           _c(
             "h4",
