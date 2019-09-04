@@ -36,6 +36,6 @@ class Street extends BaseModel
 
         return file_exists(public_path($filename))
             ? asset($filename)
-            : 'https://via.placeholder.com/1355x897';
+            : 'https://via.placeholder.com/600x500';
     }
 }

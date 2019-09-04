@@ -118,6 +118,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["street"]
 });
@@ -869,7 +870,7 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "relative px-4 -mt-12" }, [
+    _c("div", { staticClass: "relative px-4 -mt-8" }, [
       _c(
         "div",
         { staticClass: "bg-white rounded-lg px-4 py-2 shadow-lg uppercase" },
@@ -883,15 +884,21 @@ var render = function() {
             [_vm._v(_vm._s(_vm.street.name))]
           ),
           _vm._v(" "),
-          _c("span", { staticClass: "text-red-700" }, [
-            _vm._v(_vm._s(_vm.street.postcode))
-          ]),
+          _vm.street.postcode
+            ? _c("span", { staticClass: "text-red-700" }, [
+                _vm._v(_vm._s(_vm.street.postcode))
+              ])
+            : _vm._e(),
           _vm._v(" "),
-          _c("div", { staticClass: "mt-2 border-t border-gray-900" }, [
-            _c("span", { staticClass: "text-red-700 text-xs tracking-wider" }, [
-              _vm._v(_vm._s(_vm.street.borough))
-            ])
-          ])
+          _vm.street.borough
+            ? _c("div", { staticClass: "mt-2 border-t border-gray-900" }, [
+                _c(
+                  "span",
+                  { staticClass: "text-red-700 text-xs tracking-wider" },
+                  [_vm._v(_vm._s(_vm.street.borough))]
+                )
+              ])
+            : _c("div", { staticClass: "mb-1" })
         ]
       )
     ])
