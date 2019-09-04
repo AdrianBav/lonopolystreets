@@ -294,6 +294,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1186,14 +1188,20 @@ var staticRenderFns = [
                 [_vm._v("Price Range")]
               ),
               _vm._v(" "),
-              _c(
-                "select",
-                {
-                  staticClass:
-                    "mt-1 form-select block w-full text-white shadow focus:bg-gray-600"
-                },
-                [_c("option", [_vm._v("Up to $2,000/wk")])]
-              )
+              _c("input", {
+                staticClass: "custom-range block mt-1",
+                attrs: { type: "range", min: "60", max: "400", step: "20" }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex justify-between" }, [
+                _c("label", { staticClass: "text-xs text-white" }, [
+                  _vm._v("Low")
+                ]),
+                _vm._v(" "),
+                _c("label", { staticClass: "text-xs text-white" }, [
+                  _vm._v("High")
+                ])
+              ])
             ]
           )
         ])

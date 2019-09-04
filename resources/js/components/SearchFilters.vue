@@ -26,9 +26,11 @@
                     <div class="flex flex-wrap -mx-2">
                         <label class="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
                             <span class="text-sm font-semibold text-gray-500">Price Range</span>
-                            <select class="mt-1 form-select block w-full text-white shadow focus:bg-gray-600">
-                                <option>Up to $2,000/wk</option>
-                            </select>
+                            <input type="range" min="60" max="400" step="20" class="custom-range block mt-1">
+                            <div class="flex justify-between">
+                                <label class="text-xs text-white">Low</label>
+                                <label class="text-xs text-white">High</label>
+                            </div>
                         </label>
                     </div>
                 </div>
