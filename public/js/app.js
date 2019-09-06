@@ -1190,7 +1190,13 @@ var staticRenderFns = [
               _vm._v(" "),
               _c("input", {
                 staticClass: "custom-range block mt-1",
-                attrs: { type: "range", min: "60", max: "400", step: "20" }
+                attrs: {
+                  type: "range",
+                  min: "60",
+                  max: "400",
+                  step: "20",
+                  value: "400"
+                }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "flex justify-between" }, [
@@ -1235,7 +1241,12 @@ var staticRenderFns = [
             [
               _c("input", {
                 staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: { type: "radio", name: "propertyType", value: "house" }
+                attrs: {
+                  type: "radio",
+                  name: "propertyType",
+                  value: "all",
+                  checked: ""
+                }
               }),
               _vm._v(" "),
               _c("span", { staticClass: "ml-2 text-white" }, [_vm._v("All")])
@@ -1254,7 +1265,7 @@ var staticRenderFns = [
                 attrs: {
                   type: "radio",
                   name: "propertyType",
-                  value: "apartment"
+                  value: "property"
                 }
               }),
               _vm._v(" "),
@@ -1273,7 +1284,7 @@ var staticRenderFns = [
             [
               _c("input", {
                 staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: { type: "radio", name: "propertyType", value: "loft" }
+                attrs: { type: "radio", name: "propertyType", value: "station" }
               }),
               _vm._v(" "),
               _c("span", { staticClass: "ml-2 text-white" }, [
@@ -1291,11 +1302,7 @@ var staticRenderFns = [
             [
               _c("input", {
                 staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: {
-                  type: "radio",
-                  name: "propertyType",
-                  value: "townhouse"
-                }
+                attrs: { type: "radio", name: "propertyType", value: "utility" }
               }),
               _vm._v(" "),
               _c("span", { staticClass: "ml-2 text-white" }, [

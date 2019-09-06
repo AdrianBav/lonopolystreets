@@ -26,7 +26,7 @@
                     <div class="flex flex-wrap -mx-2">
                         <label class="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
                             <span class="text-sm font-semibold text-gray-500">Price Range</span>
-                            <input type="range" min="60" max="400" step="20" class="custom-range block mt-1">
+                            <input type="range" min="60" max="400" step="20" value="400" class="custom-range block mt-1">
                             <div class="flex justify-between">
                                 <label class="text-xs text-white">Low</label>
                                 <label class="text-xs text-white">High</label>
@@ -39,19 +39,19 @@
                     <span class="block text-sm font-semibold text-gray-500">Property Type</span>
                     <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="house">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="all" checked>
                             <span class="ml-2 text-white">All</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="apartment">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="property">
                             <span class="ml-2 text-white">Property</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="loft">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="station">
                             <span class="ml-2 text-white">Station</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="townhouse">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType" value="utility">
                             <span class="ml-2 text-white">Utility</span>
                         </label>
                     </div>
