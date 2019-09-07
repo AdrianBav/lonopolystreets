@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Group;
-use App\Street;
-
 class HomeController extends Controller
 {
     /**
@@ -14,10 +11,6 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        $groups = Group::with('streets')->get();
-
-        $postcodes = Street::whereNotNull('postcode')->orderBy('postcode')->distinct()->pluck('postcode');
-
-        return view('index', compact('groups', 'postcodes'));
+        return view('index');
     }
 }

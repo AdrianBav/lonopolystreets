@@ -365,7 +365,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: [],
+  props: ["value"],
   data: function data() {
     return {
       isOpen: false
@@ -1483,7 +1483,13 @@ var render = function() {
               _c("input", {
                 staticClass:
                   "block w-full border border-transparent bg-gray-200 focus:outline-none focus:bg-white focus:border-gray-300 text-gray-900 rounded-lg pl-10 pr-4 py-2",
-                attrs: { placeholder: "Search by keywords" }
+                attrs: { placeholder: "Search by keywords" },
+                domProps: { value: _vm.value },
+                on: {
+                  input: function($event) {
+                    return _vm.$emit("input", $event.target.value)
+                  }
+                }
               })
             ]
           ),
