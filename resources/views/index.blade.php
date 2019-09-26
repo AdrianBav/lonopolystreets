@@ -9,16 +9,14 @@
         <title>{{ config('app.name') }} | Bavanco</title>
 
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <script src="{{ mix('js/app.js') }}" defer></script>
         @livewireAssets
     </head>
 
     <body>
         <div id="app" class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen">
-            @livewire('demo')
             @livewire('foo')
         </div>
-
-        <script src="{{ mix('js/app.js') }}"></script>
     </body>
 
 </html>
