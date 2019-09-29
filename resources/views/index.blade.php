@@ -13,17 +13,7 @@
 
     <body>
         <div id="app" class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen">
-            <site-header class="xl:flex-shrink-0"></site-header>
-
-            <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
-                <search-filters :postcodes='@json($postcodes)'></search-filters>
-
-                <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
-                    <deck :groups='@json($groups)'></deck>
-                </main>
-
-                <copyright class="xl:hidden"></copyright>
-            </div>
+            <app :groups='@json($groups)' :postcodes='@json($postcodes)'></app>
         </div>
 
         <script src="{{ mix('js/app.js') }}"></script>
