@@ -15,7 +15,17 @@
 </template>
 
 <script>
+    import SiteHeader from "./SiteHeader";
+    import SearchFilters from "./SearchFilters";
+    import Copyright from "./Copyright";
+
     export default {
+
+        components: {
+            SiteHeader,
+            SearchFilters,
+            Copyright,
+        },
 
         props: [
             "groups",
@@ -31,7 +41,9 @@
         computed: {
             filteredGroups: function() {
                 if ( this.search ) {
-                    return this.groups.filter( group => group.name.toLowerCase().includes( this.search.toLowerCase() ) );
+                    return this.groups.filter( group =>
+                        group.name.toLowerCase().includes( this.search.toLowerCase() )
+                    );
                 }
 
                 return this.groups;

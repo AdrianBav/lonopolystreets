@@ -1,24 +1,32 @@
 <template>
     <div>
-        <div v-for="(group, i) in groups" :class="{'mt-6': i > 0}">
 
-            <div class="px-4 xl:px-8">
-                <div class="flex items-center">
-                    <span v-html="icon( group.name )"></span>
-                    <h3 class="text-gray-900 text-xl ml-2">{{ group.name }}</h3>
+        <div v-show="groups.length > 0">
+            <div v-for="(group, i) in groups" :key="group.id" :class="{'mt-6': i > 0}">
+
+                <div class="px-4 xl:px-8">
+                    <div class="flex items-center">
+                        <span v-html="icon( group.name )"></span>
+                        <h3 class="text-gray-900 text-xl ml-2">{{ group.name }}</h3>
+                    </div>
+                    <p class="text-gray-600">{{ group.description }}</p>
                 </div>
-                <p class="text-gray-600">{{ group.description }}</p>
-            </div>
 
-            <div class="mt-6 sm:overflow-x-auto sm:overflow-y-hidden">
-                <div class="px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8">
-                    <div v-for="(street, i) in group.streets" :class="{'mt-10 sm:ml-4': i > 0 }" class="sm:mt-0 sm:w-80 sm:flex-shrink-0">
-                        <card :street="street"></card>
+                <div class="mt-6 sm:overflow-x-auto sm:overflow-y-hidden">
+                    <div class="px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8">
+                        <div v-for="(street, i) in group.streets" :class="{'mt-10 sm:ml-4': i > 0 }" class="sm:mt-0 sm:w-80 sm:flex-shrink-0">
+                            <card :street="street"></card>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
+
+        <div v-show="groups.length === 0" class="px-4 xl:px-8">
+            No results found for selected search.
+        </div>
+
     </div>
 </template>
 

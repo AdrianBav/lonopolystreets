@@ -95,6 +95,9 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SiteHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SiteHeader */ "./resources/js/components/SiteHeader.vue");
+/* harmony import */ var _SearchFilters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchFilters */ "./resources/js/components/SearchFilters.vue");
+/* harmony import */ var _Copyright__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Copyright */ "./resources/js/components/Copyright.vue");
 //
 //
 //
@@ -111,7 +114,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    SiteHeader: _SiteHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SearchFilters: _SearchFilters__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Copyright: _Copyright__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
   props: ["groups", "postcodes"],
   data: function data() {
     return {
@@ -210,6 +221,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./resources/js/components/Card.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1066,52 +1085,80 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    _vm._l(_vm.groups, function(group, i) {
-      return _c("div", { class: { "mt-6": i > 0 } }, [
-        _c("div", { staticClass: "px-4 xl:px-8" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c("span", {
-              domProps: { innerHTML: _vm._s(_vm.icon(group.name)) }
-            }),
+  return _c("div", [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.groups.length > 0,
+            expression: "groups.length > 0"
+          }
+        ]
+      },
+      _vm._l(_vm.groups, function(group, i) {
+        return _c("div", { key: group.id, class: { "mt-6": i > 0 } }, [
+          _c("div", { staticClass: "px-4 xl:px-8" }, [
+            _c("div", { staticClass: "flex items-center" }, [
+              _c("span", {
+                domProps: { innerHTML: _vm._s(_vm.icon(group.name)) }
+              }),
+              _vm._v(" "),
+              _c("h3", { staticClass: "text-gray-900 text-xl ml-2" }, [
+                _vm._v(_vm._s(group.name))
+              ])
+            ]),
             _vm._v(" "),
-            _c("h3", { staticClass: "text-gray-900 text-xl ml-2" }, [
-              _vm._v(_vm._s(group.name))
+            _c("p", { staticClass: "text-gray-600" }, [
+              _vm._v(_vm._s(group.description))
             ])
           ]),
           _vm._v(" "),
-          _c("p", { staticClass: "text-gray-600" }, [
-            _vm._v(_vm._s(group.description))
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "mt-6 sm:overflow-x-auto sm:overflow-y-hidden" },
-          [
-            _c(
-              "div",
-              { staticClass: "px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8" },
-              _vm._l(group.streets, function(street, i) {
-                return _c(
-                  "div",
-                  {
-                    staticClass: "sm:mt-0 sm:w-80 sm:flex-shrink-0",
-                    class: { "mt-10 sm:ml-4": i > 0 }
-                  },
-                  [_c("card", { attrs: { street: street } })],
-                  1
-                )
-              }),
-              0
-            )
-          ]
-        )
-      ])
-    }),
-    0
-  )
+          _c(
+            "div",
+            { staticClass: "mt-6 sm:overflow-x-auto sm:overflow-y-hidden" },
+            [
+              _c(
+                "div",
+                { staticClass: "px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8" },
+                _vm._l(group.streets, function(street, i) {
+                  return _c(
+                    "div",
+                    {
+                      staticClass: "sm:mt-0 sm:w-80 sm:flex-shrink-0",
+                      class: { "mt-10 sm:ml-4": i > 0 }
+                    },
+                    [_c("card", { attrs: { street: street } })],
+                    1
+                  )
+                }),
+                0
+              )
+            ]
+          )
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.groups.length === 0,
+            expression: "groups.length === 0"
+          }
+        ],
+        staticClass: "px-4 xl:px-8"
+      },
+      [_vm._v("\n        No results found for selected search.\n    ")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
