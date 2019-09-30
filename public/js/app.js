@@ -126,16 +126,34 @@ __webpack_require__.r(__webpack_exports__);
   props: ["groups", "postcodes"],
   data: function data() {
     return {
-      search: ""
+      searchText: "",
+      priceRange: 10
     };
   },
   computed: {
     filteredGroups: function filteredGroups() {
       var _this = this;
 
-      if (this.search) {
+      // if ( this.type != "all" ) {
+      //     if ( this.type == "utility" ) {
+      //         return this.groups.filter( group => group.name == "Utilities" );
+      //     } else if ( this.type == "station" ) {
+      //         return this.groups.filter( group => group.name == "Stations" );
+      //     } else {
+      //         return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
+      //     }
+      // }
+      if (this.priceRange < 10) {
         return this.groups.filter(function (group) {
-          return group.name.toLowerCase().includes(_this.search.toLowerCase());
+          return group.id > _this.priceRange;
+        });
+      }
+
+      if (this.searchText) {
+        return this.groups.filter(function (group) {
+          return group.streets.reduce(function (streetNames, street) {
+            return streetNames.concat(street.name.toLowerCase());
+          }, []).includes(_this.searchText.toLowerCase());
         });
       }
 
@@ -364,12 +382,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Copyright: _Copyright__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ["postcodes"],
+  props: ["postcodes", "value"],
   data: function data() {
     return {
       isOpen: false
@@ -393,6 +418,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -937,11 +967,11 @@ var render = function() {
       _c("site-header", {
         staticClass: "xl:flex-shrink-0",
         model: {
-          value: _vm.search,
+          value: _vm.searchText,
           callback: function($$v) {
-            _vm.search = $$v
+            _vm.searchText = $$v
           },
-          expression: "search"
+          expression: "searchText"
         }
       }),
       _vm._v(" "),
@@ -949,7 +979,14 @@ var render = function() {
         "div",
         { staticClass: "xl:flex-1 xl:flex xl:overflow-y-hidden" },
         [
-          _c("search-filters", { attrs: { postcodes: _vm.postcodes } }),
+          _c("search-filters", {
+            attrs: { postcodes: _vm.postcodes, value: _vm.priceRange },
+            on: {
+              input: function($event) {
+                _vm.priceRange = $event
+              }
+            }
+          }),
           _vm._v(" "),
           _c(
             "main",
@@ -1263,7 +1300,44 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "lg:flex xl:block xl:overflow-y-auto" }, [
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass:
+                "px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full"
+            },
+            [
+              _c("div", { staticClass: "flex flex-wrap -mx-2" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full"
+                  },
+                  [
+                    _c(
+                      "span",
+                      { staticClass: "text-sm font-semibold text-gray-500" },
+                      [_vm._v("Price Range")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass: "custom-range block mt-1",
+                      attrs: { type: "range", min: "0", max: "10", step: "1" },
+                      domProps: { value: _vm.value },
+                      on: {
+                        input: function($event) {
+                          return _vm.$emit("input", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
+                )
+              ])
+            ]
+          ),
           _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
@@ -1320,52 +1394,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "px-4 py-4 border-t border-gray-900 lg:w-1/3 xl:border-t-0 xl:w-full"
-      },
-      [
-        _c("div", { staticClass: "flex flex-wrap -mx-2" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full"
-            },
-            [
-              _c(
-                "span",
-                { staticClass: "text-sm font-semibold text-gray-500" },
-                [_vm._v("Price Range")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                staticClass: "custom-range block mt-1",
-                attrs: {
-                  type: "range",
-                  min: "60",
-                  max: "400",
-                  step: "20",
-                  value: "400"
-                }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex justify-between" }, [
-                _c("label", { staticClass: "text-xs text-white" }, [
-                  _vm._v("Low")
-                ]),
-                _vm._v(" "),
-                _c("label", { staticClass: "text-xs text-white" }, [
-                  _vm._v("High")
-                ])
-              ])
-            ]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "flex justify-between" }, [
+      _c("label", { staticClass: "text-xs text-white" }, [_vm._v("Low")]),
+      _vm._v(" "),
+      _c("label", { staticClass: "text-xs text-white" }, [_vm._v("High")])
+    ])
   },
   function() {
     var _vm = this

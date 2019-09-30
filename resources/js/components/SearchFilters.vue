@@ -26,7 +26,13 @@
                     <div class="flex flex-wrap -mx-2">
                         <label class="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
                             <span class="text-sm font-semibold text-gray-500">Price Range</span>
-                            <input type="range" min="60" max="400" step="20" value="400" class="custom-range block mt-1">
+                            <input
+                                v-bind:value="value"
+                                v-on:input="$emit('input', $event.target.value)"
+                                type="range"
+                                min="60" max="400" step="20"
+                                class="custom-range block mt-1"
+                            >
                             <div class="flex justify-between">
                                 <label class="text-xs text-white">Low</label>
                                 <label class="text-xs text-white">High</label>
@@ -85,6 +91,7 @@
 
         props: [
             "postcodes",
+            "value",
         ],
 
         data() {

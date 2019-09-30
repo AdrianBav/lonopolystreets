@@ -1,9 +1,9 @@
 <template>
     <div>
-        <site-header v-model="search" class="xl:flex-shrink-0"></site-header>
+        <site-header v-model="searchText" class="xl:flex-shrink-0"></site-header>
 
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
-            <search-filters :postcodes=postcodes></search-filters>
+            <search-filters :postcodes=postcodes v-bind:value="priceRange" v-on:input="priceRange = $event"></search-filters>
 
             <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
                 <deck :groups=filteredGroups></deck>
@@ -34,15 +34,36 @@
 
         data() {
             return {
-                search: "",
+                searchText: "",
+                priceRange: 400,
             };
         },
 
         computed: {
             filteredGroups: function() {
-                if ( this.search ) {
+                // if ( this.type != "all" ) {
+                //     if ( this.type == "utility" ) {
+                //         return this.groups.filter( group => group.name == "Utilities" );
+                //     } else if ( this.type == "station" ) {
+                //         return this.groups.filter( group => group.name == "Stations" );
+                //     } else {
+                //         return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
+                //     }
+                // }
+
+                if ( this.priceRange < 400 ) {
                     return this.groups.filter( group =>
-                        group.name.toLowerCase().includes( this.search.toLowerCase() )
+                        group.id > this.priceRange
+                    );
+                }
+
+                if ( this.searchText ) {
+                    return this.groups.filter( group =>
+                        group.streets
+                            .reduce( ( streetNames, street ) =>
+                                streetNames.concat( street.name.toLowerCase() ), []
+                            )
+                            .includes( this.searchText.toLowerCase() )
                     );
                 }
 
