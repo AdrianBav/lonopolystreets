@@ -114,6 +114,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -127,24 +133,54 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       searchText: "",
-      priceRange: 400
+      priceRange: 400,
+      propertyType: "all",
+      postcode: ""
     };
   },
   computed: {
     filteredGroups: function filteredGroups() {
       var _this = this;
 
-      // Type
-      // if ( this.type != "all" ) {
-      //     if ( this.type == "utility" ) {
-      //         return this.groups.filter( group => group.name == "Utilities" );
-      //     } else if ( this.type == "station" ) {
-      //         return this.groups.filter( group => group.name == "Stations" );
-      //     } else {
-      //         return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
-      //     }
-      // }
-      // Price Range
+      // Postcode
+      if (this.postcode) {
+        if (this.postcode == "E1") {
+          return this.groups.filter(function (group) {
+            return group.id == 1;
+          });
+        } else if (this.postcode == "EC2") {
+          return this.groups.filter(function (group) {
+            return group.id == 2;
+          });
+        } else if (this.postcode == "EC3") {
+          return this.groups.filter(function (group) {
+            return group.id == 3;
+          });
+        } else {
+          return this.groups.filter(function (group) {
+            return group.id == 4;
+          });
+        }
+      } // Property Type
+
+
+      if (this.propertyType != "all") {
+        if (this.propertyType == "utility") {
+          return this.groups.filter(function (group) {
+            return group.name == "Utilities";
+          });
+        } else if (this.propertyType == "station") {
+          return this.groups.filter(function (group) {
+            return group.name == "Stations";
+          });
+        } else {
+          return this.groups.filter(function (group) {
+            return group.name != "Utilities" && group.name != "Stations";
+          });
+        }
+      } // Price Range
+
+
       if (this.priceRange < 400) {
         return this.groups.filter(function (group) {
           return group.price < _this.priceRange;
@@ -391,12 +427,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Copyright: _Copyright__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ["postcodes", "value"],
+  props: ["postcodes", "propertyrangevalue", "propertytypechecked", "postcodechecked"],
   data: function data() {
     return {
       isOpen: false
@@ -420,6 +463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -982,10 +1026,21 @@ var render = function() {
         { staticClass: "xl:flex-1 xl:flex xl:overflow-y-hidden" },
         [
           _c("search-filters", {
-            attrs: { postcodes: _vm.postcodes, value: _vm.priceRange },
+            attrs: {
+              postcodes: _vm.postcodes,
+              propertyrangevalue: _vm.priceRange,
+              propertytypechecked: _vm.propertyType,
+              postcodechecked: _vm.postcode
+            },
             on: {
-              input: function($event) {
+              propertyrangeinput: function($event) {
                 _vm.priceRange = $event
+              },
+              propertytypechange: function($event) {
+                _vm.propertyType = $event
+              },
+              postcodechange: function($event) {
+                _vm.postcode = $event
               }
             }
           }),
@@ -1331,10 +1386,13 @@ var render = function() {
                         max: "400",
                         step: "20"
                       },
-                      domProps: { value: _vm.value },
+                      domProps: { value: _vm.propertyrangevalue },
                       on: {
                         input: function($event) {
-                          return _vm.$emit("input", $event.target.value)
+                          return _vm.$emit(
+                            "propertyrangeinput",
+                            $event.target.value
+                          )
                         }
                       }
                     }),
@@ -1346,7 +1404,146 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1),
+          _c(
+            "div",
+            {
+              staticClass:
+                "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
+            },
+            [
+              _c(
+                "span",
+                { staticClass: "block text-sm font-semibold text-gray-500" },
+                [_vm._v("Property Type")]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "sm:flex sm:-mx-2 lg:block lg:mx-0" }, [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      attrs: {
+                        type: "radio",
+                        name: "propertyType[]",
+                        value: "all"
+                      },
+                      domProps: { checked: _vm.propertytypechecked },
+                      on: {
+                        change: function($event) {
+                          return _vm.$emit(
+                            "propertytypechange",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "ml-2 text-white" }, [
+                      _vm._v("All")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      attrs: {
+                        type: "radio",
+                        name: "propertyType[]",
+                        value: "property"
+                      },
+                      domProps: { checked: _vm.propertytypechecked },
+                      on: {
+                        change: function($event) {
+                          return _vm.$emit(
+                            "propertytypechange",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "ml-2 text-white" }, [
+                      _vm._v("Property")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      attrs: {
+                        type: "radio",
+                        name: "propertyType[]",
+                        value: "station"
+                      },
+                      domProps: { checked: _vm.propertytypechecked },
+                      on: {
+                        change: function($event) {
+                          return _vm.$emit(
+                            "propertytypechange",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "ml-2 text-white" }, [
+                      _vm._v("Station")
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
+                  },
+                  [
+                    _c("input", {
+                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      attrs: {
+                        type: "radio",
+                        name: "propertyType[]",
+                        value: "utility"
+                      },
+                      domProps: { checked: _vm.propertytypechecked },
+                      on: {
+                        change: function($event) {
+                          return _vm.$emit(
+                            "propertytypechange",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "ml-2 text-white" }, [
+                      _vm._v("Utility")
+                    ])
+                  ]
+                )
+              ])
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -1375,7 +1572,19 @@ var render = function() {
                       _c("input", {
                         staticClass:
                           "form-checkbox bg-gray-900 focus:bg-gray-700",
-                        attrs: { type: "checkbox", name: postcode }
+                        attrs: { type: "checkbox", name: "postcode[]" },
+                        domProps: {
+                          value: postcode,
+                          checked: _vm.postcodechecked
+                        },
+                        on: {
+                          change: function($event) {
+                            return _vm.$emit(
+                              "postcodechange",
+                              $event.target.value
+                            )
+                          }
+                        }
                       }),
                       _vm._v(" "),
                       _c("span", { staticClass: "ml-2 text-white" }, [
@@ -1406,106 +1615,6 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("label", { staticClass: "text-xs text-white" }, [_vm._v("High")])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full"
-      },
-      [
-        _c(
-          "span",
-          { staticClass: "block text-sm font-semibold text-gray-500" },
-          [_vm._v("Property Type")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "sm:flex sm:-mx-2 lg:block lg:mx-0" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-            },
-            [
-              _c("input", {
-                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: {
-                  type: "radio",
-                  name: "propertyType",
-                  value: "all",
-                  checked: ""
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-white" }, [_vm._v("All")])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass:
-                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-            },
-            [
-              _c("input", {
-                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: {
-                  type: "radio",
-                  name: "propertyType",
-                  value: "property"
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-white" }, [
-                _vm._v("Property")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass:
-                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-            },
-            [
-              _c("input", {
-                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: { type: "radio", name: "propertyType", value: "station" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-white" }, [
-                _vm._v("Station")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass:
-                "mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0"
-            },
-            [
-              _c("input", {
-                staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                attrs: { type: "radio", name: "propertyType", value: "utility" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "ml-2 text-white" }, [
-                _vm._v("Utility")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true

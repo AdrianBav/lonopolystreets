@@ -3,7 +3,13 @@
         <site-header v-model="searchText" class="xl:flex-shrink-0"></site-header>
 
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
-            <search-filters :postcodes=postcodes v-bind:value="priceRange" v-on:input="priceRange = $event"></search-filters>
+            <search-filters
+                :postcodes=postcodes
+                v-bind:propertyrangevalue="priceRange" v-on:propertyrangeinput="priceRange = $event"
+                v-bind:propertytypechecked="propertyType" v-on:propertytypechange="propertyType = $event"
+                v-bind:postcodechecked="postcode" v-on:postcodechange="postcode = $event"
+            >
+            </search-filters>
 
             <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
                 <deck :groups=filteredGroups></deck>
@@ -36,21 +42,36 @@
             return {
                 searchText: "",
                 priceRange: 400,
+                propertyType: "all",
+                postcode: "",
             };
         },
 
         computed: {
             filteredGroups: function() {
-                // Type
-                // if ( this.type != "all" ) {
-                //     if ( this.type == "utility" ) {
-                //         return this.groups.filter( group => group.name == "Utilities" );
-                //     } else if ( this.type == "station" ) {
-                //         return this.groups.filter( group => group.name == "Stations" );
-                //     } else {
-                //         return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
-                //     }
-                // }
+                // Postcode
+                if ( this.postcode ) {
+                    if ( this.postcode == "E1" ) {
+                        return this.groups.filter( group => group.id == 1 );
+                    } else if ( this.postcode == "EC2" ) {
+                        return this.groups.filter( group => group.id == 2 );
+                    } else if ( this.postcode == "EC3" ) {
+                        return this.groups.filter( group => group.id == 3 );
+                    } else {
+                        return this.groups.filter( group => group.id == 4 );
+                    }
+                }
+
+                // Property Type
+                if ( this.propertyType != "all" ) {
+                    if ( this.propertyType == "utility" ) {
+                        return this.groups.filter( group => group.name == "Utilities" );
+                    } else if ( this.propertyType == "station" ) {
+                        return this.groups.filter( group => group.name == "Stations" );
+                    } else {
+                        return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
+                    }
+                }
 
                 // Price Range
                 if ( this.priceRange < 400 ) {
