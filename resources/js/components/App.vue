@@ -41,6 +41,7 @@
 
         computed: {
             filteredGroups: function() {
+                // Type
                 // if ( this.type != "all" ) {
                 //     if ( this.type == "utility" ) {
                 //         return this.groups.filter( group => group.name == "Utilities" );
@@ -51,12 +52,14 @@
                 //     }
                 // }
 
+                // Price Range
                 if ( this.priceRange < 400 ) {
                     return this.groups.filter( group =>
-                        group.id > this.priceRange
+                        group.price < this.priceRange
                     );
                 }
 
+                // Search
                 if ( this.searchText ) {
                     return this.groups.filter( group =>
                         group.streets

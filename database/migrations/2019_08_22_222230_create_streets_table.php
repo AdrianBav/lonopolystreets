@@ -21,6 +21,8 @@ class CreateStreetsTable extends Migration
             $table->string('borough')->nullable();
             $table->string('postcode')->nullable();
 
+            $table->unsignedSmallInteger('price');
+
             $table->unsignedBigInteger('group_id');
             $table->foreign('group_id')->references('id')->on('groups');
         });

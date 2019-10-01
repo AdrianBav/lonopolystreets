@@ -127,13 +127,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       searchText: "",
-      priceRange: 10
+      priceRange: 400
     };
   },
   computed: {
     filteredGroups: function filteredGroups() {
       var _this = this;
 
+      // Type
       // if ( this.type != "all" ) {
       //     if ( this.type == "utility" ) {
       //         return this.groups.filter( group => group.name == "Utilities" );
@@ -143,11 +144,13 @@ __webpack_require__.r(__webpack_exports__);
       //         return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
       //     }
       // }
-      if (this.priceRange < 10) {
+      // Price Range
+      if (this.priceRange < 400) {
         return this.groups.filter(function (group) {
-          return group.id > _this.priceRange;
+          return group.price < _this.priceRange;
         });
-      }
+      } // Search
+
 
       if (this.searchText) {
         return this.groups.filter(function (group) {
@@ -306,7 +309,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Copyright__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Copyright */ "./resources/js/components/Copyright.vue");
-//
 //
 //
 //
@@ -1323,7 +1325,12 @@ var render = function() {
                     _vm._v(" "),
                     _c("input", {
                       staticClass: "custom-range block mt-1",
-                      attrs: { type: "range", min: "0", max: "10", step: "1" },
+                      attrs: {
+                        type: "range",
+                        min: "60",
+                        max: "400",
+                        step: "20"
+                      },
                       domProps: { value: _vm.value },
                       on: {
                         input: function($event) {
