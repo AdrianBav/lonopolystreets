@@ -133,11 +133,12 @@ __webpack_require__.r(__webpack_exports__);
     CopyrightFooter: _CopyrightFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
-    groups: Object,
+    groups: Array,
     postcodes: Array
   },
   data: function data() {
     return {
+      selectedGroups: [],
       searchText: "",
       priceRange: "400",
       propertyType: "all",
@@ -146,63 +147,75 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     filteredGroups: function filteredGroups() {
-      var _this = this;
+      this.selectedGroups = this.groups;
 
-      // Postcode
       if (this.postcode.length > 0) {
-        if (this.postcode == "E1") {
-          return this.groups.filter(function (group) {
-            return group.id == 1;
-          });
-        } else if (this.postcode == "EC2") {
-          return this.groups.filter(function (group) {
-            return group.id == 2;
-          });
-        } else if (this.postcode == "EC3") {
-          return this.groups.filter(function (group) {
-            return group.id == 3;
-          });
-        } else {
-          return this.groups.filter(function (group) {
-            return group.id == 4;
-          });
-        }
-      } // Property Type
-
-
-      if (this.propertyType != "all") {
-        if (this.propertyType == "utility") {
-          return this.groups.filter(function (group) {
-            return group.name == "Utilities";
-          });
-        } else if (this.propertyType == "station") {
-          return this.groups.filter(function (group) {
-            return group.name == "Stations";
-          });
-        } else {
-          return this.groups.filter(function (group) {
-            return group.name != "Utilities" && group.name != "Stations";
-          });
-        }
-      } // Price Range
-
-
-      if (this.priceRange < 400) {
-        return this.groups.filter(function (group) {
-          return group.price < _this.priceRange;
-        });
-      } // Search
-
-
-      if (this.searchText) {
-        return this.groups.filter(function (group) {
-          return group.streets.reduce(function (streetNames, street) {
-            return streetNames.concat(street.name.toLowerCase());
-          }, []).includes(_this.searchText.toLowerCase());
-        });
+        this.filterByPostcode();
       }
 
-      return this.groups;
+      if (this.propertyType != "all") {
+        this.filterByPropertyType();
+      }
+
+      if (this.priceRange < 400) {
+        this.filterByPriceRange();
+      }
+
+      if (this.searchText.length > 0) {
+        this.filterBySearchText();
+      }
+
+      return this.selectedGroups;
+    }
+  },
+  methods: {
+    filterBySearchText: function filterBySearchText() {
+      var _this = this;
+
+      this.selectedGroups = this.selectedGroups.filter(function (group) {
+        return group.streets = group.streets.filter(function (street) {
+          return street.name.toLowerCase().includes(_this.searchText.toLowerCase());
+        });
+      }).filter(function (group) {
+        return group.streets.length > 0;
+      });
+    },
+    filterByPriceRange: function filterByPriceRange() {
+      var _this2 = this;
+
+      this.selectedGroups = this.selectedGroups.filter(function (group) {
+        return group.streets = group.streets.filter(function (street) {
+          return street.price < _this2.priceRange;
+        });
+      }).filter(function (group) {
+        return group.streets.length > 0;
+      });
+    },
+    filterByPropertyType: function filterByPropertyType() {
+      if (this.propertyType == "utility") {
+        this.selectedGroups = this.selectedGroups.filter(function (group) {
+          return group.name == "Utilities";
+        });
+      } else if (this.propertyType == "station") {
+        this.selectedGroups = this.selectedGroups.filter(function (group) {
+          return group.name == "Stations";
+        });
+      } else {
+        this.selectedGroups = this.selectedGroups.filter(function (group) {
+          return group.name != "Utilities" && group.name != "Stations";
+        });
+      }
+    },
+    filterByPostcode: function filterByPostcode() {
+      var _this3 = this;
+
+      this.selectedGroups = this.selectedGroups.filter(function (group) {
+        return group.streets = group.streets.filter(function (street) {
+          return _this3.postcode.includes(street.postcode);
+        });
+      }).filter(function (group) {
+        return group.streets.length > 0;
+      });
     }
   }
 });
@@ -257,7 +270,7 @@ __webpack_require__.r(__webpack_exports__);
     DeedCard: _DeedCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    groups: Object
+    groups: Array
   },
   methods: {
     icon: function icon(groupName) {

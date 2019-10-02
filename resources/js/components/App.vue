@@ -36,12 +36,13 @@
         },
 
         props: {
-            groups: Object,
+            groups: Array,
             postcodes: Array,
         },
 
         data() {
             return {
+                selectedGroups: [],
                 searchText: "",
                 priceRange: "400",
                 propertyType: "all",
@@ -51,49 +52,73 @@
 
         computed: {
             filteredGroups: function() {
-                // Postcode
+                this.selectedGroups = this.groups;
+
                 if ( this.postcode.length > 0 ) {
-                    if ( this.postcode == "E1" ) {
-                        return this.groups.filter( group => group.id == 1 );
-                    } else if ( this.postcode == "EC2" ) {
-                        return this.groups.filter( group => group.id == 2 );
-                    } else if ( this.postcode == "EC3" ) {
-                        return this.groups.filter( group => group.id == 3 );
-                    } else {
-                        return this.groups.filter( group => group.id == 4 );
-                    }
+                    this.filterByPostcode();
                 }
 
-                // Property Type
                 if ( this.propertyType != "all" ) {
-                    if ( this.propertyType == "utility" ) {
-                        return this.groups.filter( group => group.name == "Utilities" );
-                    } else if ( this.propertyType == "station" ) {
-                        return this.groups.filter( group => group.name == "Stations" );
-                    } else {
-                        return this.groups.filter( group => group.name != "Utilities" && group.name != "Stations" );
-                    }
+                    this.filterByPropertyType();
                 }
 
-                // Price Range
                 if ( this.priceRange < 400 ) {
-                    return this.groups.filter( group =>
-                        group.price < this.priceRange
-                    );
+                    this.filterByPriceRange();
                 }
 
-                // Search
-                if ( this.searchText ) {
-                    return this.groups.filter( group =>
-                        group.streets
-                            .reduce( ( streetNames, street ) =>
-                                streetNames.concat( street.name.toLowerCase() ), []
-                            )
-                            .includes( this.searchText.toLowerCase() )
-                    );
+                if ( this.searchText.length > 0 ) {
+                    this.filterBySearchText()
                 }
 
-                return this.groups;
+                return this.selectedGroups;
+            },
+        },
+
+        methods: {
+            filterBySearchText() {
+                this.selectedGroups = this.selectedGroups
+                    .filter( group =>
+                        group.streets = group.streets.filter( street =>
+                            street.name.toLowerCase().includes( this.searchText.toLowerCase() )
+                        ),
+                    )
+                    .filter( group =>
+                        group.streets.length > 0
+                    );
+            },
+
+            filterByPriceRange() {
+                this.selectedGroups = this.selectedGroups
+                    .filter( group =>
+                        group.streets = group.streets.filter( street =>
+                            street.price < this.priceRange
+                        ),
+                    )
+                    .filter( group =>
+                        group.streets.length > 0
+                    );
+            },
+
+            filterByPropertyType() {
+                if ( this.propertyType == "utility" ) {
+                    this.selectedGroups = this.selectedGroups.filter( group => group.name == "Utilities" );
+                } else if ( this.propertyType == "station" ) {
+                    this.selectedGroups = this.selectedGroups.filter( group => group.name == "Stations" );
+                } else {
+                    this.selectedGroups = this.selectedGroups.filter( group => group.name != "Utilities" && group.name != "Stations" );
+                }
+            },
+
+            filterByPostcode() {
+                this.selectedGroups = this.selectedGroups
+                    .filter( group =>
+                        group.streets = group.streets.filter( street =>
+                            this.postcode.includes( street.postcode )
+                        ),
+                    )
+                    .filter( group =>
+                        group.streets.length > 0
+                    );
             },
         },
 

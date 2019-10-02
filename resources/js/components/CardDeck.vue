@@ -40,7 +40,7 @@
         },
 
         props: {
-            groups: Object,
+            groups: Array,
         },
 
         methods: {
