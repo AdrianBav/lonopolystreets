@@ -12,11 +12,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('app', require('./components/App.vue').default);
-Vue.component('card', require('./components/Card.vue').default);
-Vue.component('deck', require('./components/Deck.vue').default);
-Vue.component('copyright', require('./components/Copyright.vue').default);
-Vue.component('search-filters', require('./components/SearchFilters.vue').default);
+Vue.component('deed-card', require('./components/DeedCard.vue').default);
+Vue.component('card-deck', require('./components/CardDeck.vue').default);
 Vue.component('site-header', require('./components/SiteHeader.vue').default);
+Vue.component('search-filters', require('./components/SearchFilters.vue').default);
+Vue.component('copyright-footer', require('./components/CopyrightFooter.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

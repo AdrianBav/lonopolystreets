@@ -25,9 +25,9 @@
 <script>
     export default {
 
-        props: [
-            "street",
-        ],
+        props: {
+            street: Object,
+        },
 
     };
 </script>

@@ -95,9 +95,10 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SiteHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SiteHeader */ "./resources/js/components/SiteHeader.vue");
-/* harmony import */ var _SearchFilters__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchFilters */ "./resources/js/components/SearchFilters.vue");
-/* harmony import */ var _Copyright__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Copyright */ "./resources/js/components/Copyright.vue");
+/* harmony import */ var _CardDeck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDeck */ "./resources/js/components/CardDeck.vue");
+/* harmony import */ var _SiteHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SiteHeader */ "./resources/js/components/SiteHeader.vue");
+/* harmony import */ var _SearchFilters__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchFilters */ "./resources/js/components/SearchFilters.vue");
+/* harmony import */ var _CopyrightFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CopyrightFooter */ "./resources/js/components/CopyrightFooter.vue");
 //
 //
 //
@@ -120,16 +121,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    SiteHeader: _SiteHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
-    SearchFilters: _SearchFilters__WEBPACK_IMPORTED_MODULE_1__["default"],
-    Copyright: _Copyright__WEBPACK_IMPORTED_MODULE_2__["default"]
+    CardDeck: _CardDeck__WEBPACK_IMPORTED_MODULE_0__["default"],
+    SiteHeader: _SiteHeader__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SearchFilters: _SearchFilters__WEBPACK_IMPORTED_MODULE_2__["default"],
+    CopyrightFooter: _CopyrightFooter__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  props: ["groups", "postcodes"],
+  props: {
+    groups: Object,
+    postcodes: Array
+  },
   data: function data() {
     return {
       searchText: "",
@@ -143,7 +149,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // Postcode
-      if (this.postcode) {
+      if (this.postcode.length > 0) {
         if (this.postcode == "E1") {
           return this.groups.filter(function (group) {
             return group.id == 1;
@@ -203,15 +209,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Card.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Card.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDeck.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CardDeck.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeedCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeedCard */ "./resources/js/components/DeedCard.vue");
 //
 //
 //
@@ -236,16 +243,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["street"]
+  components: {
+    DeedCard: _DeedCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    groups: Object
+  },
+  methods: {
+    icon: function icon(groupName) {
+      if (groupName == "Utilities") {
+        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z"/></svg>';
+      } else if (groupName == "Stations") {
+        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 18H8l-2 2H3l2-2a2 2 0 0 1-2-2V2c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2l2 2h-3l-2-2zM5 5v6h10V5H5zm1.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 2v1h4V2H8z"/></svg>';
+      } else {
+        var iconColor = this.slugify(groupName);
+        return "<svg class=\"h-4 w-4 fill-current ".concat(iconColor, "\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm2 2v12h16V5H2z\"/></svg>");
+      }
+    },
+    slugify: function slugify(value) {
+      return value.toString().toLowerCase().replace(/\s+/g, "-");
+    }
+  }
 });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Copyright.vue?vue&type=script&lang=js&":
-/*!********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Copyright.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -268,16 +304,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Deck.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Deck.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DeedCard.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DeedCard.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card */ "./resources/js/components/Card.vue");
 //
 //
 //
@@ -302,34 +337,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Card: _Card__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
-  props: ["groups"],
-  methods: {
-    icon: function icon(groupName) {
-      if (groupName == "Utilities") {
-        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V0L8.11 5.87 3 12h4v8L17 8h-4z"/></svg>';
-      } else if (groupName == "Stations") {
-        return '<svg class="h-4 w-4 fill-current text-indigo-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12 18H8l-2 2H3l2-2a2 2 0 0 1-2-2V2c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2l2 2h-3l-2-2zM5 5v6h10V5H5zm1.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm7 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM8 2v1h4V2H8z"/></svg>';
-      } else {
-        var iconColor = this.slugify(groupName);
-        return "<svg class=\"h-4 w-4 fill-current ".concat(iconColor, "\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M0 3c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm2 2v12h16V5H2z\"/></svg>");
-      }
-    },
-    slugify: function slugify(value) {
-      return value.toString().toLowerCase().replace(/\s+/g, "-");
-    }
+  props: {
+    street: Object
   }
 });
 
@@ -344,7 +354,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Copyright__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Copyright */ "./resources/js/components/Copyright.vue");
+/* harmony import */ var _CopyrightFooter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CopyrightFooter */ "./resources/js/components/CopyrightFooter.vue");
 //
 //
 //
@@ -431,26 +441,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Copyright: _Copyright__WEBPACK_IMPORTED_MODULE_0__["default"]
+    CopyrightFooter: _CopyrightFooter__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ["postcodes", "propertyrangevalue", "propertytypechecked", "postcodechecked"],
+  props: {
+    postcodes: Array,
+    propertyRangeValue: String,
+    propertyTypeChecked: String,
+    postcodeChecked: Array
+  },
   data: function data() {
     return {
       isOpen: false,
-      selectedPropertyRange: this.propertyrangevalue,
-      selectedPropertyType: this.propertytypechecked,
-      selectedPostcode: this.postcodechecked
+      selectedPropertyRange: this.propertyRangeValue,
+      selectedPropertyType: this.propertyTypeChecked,
+      selectedPostcode: this.postcodeChecked
     };
   },
   watch: {
     selectedPropertyRange: function selectedPropertyRange() {
-      this.$emit('propertyrangeinput', this.selectedPropertyRange);
+      this.$emit('propertyRangeInput', this.selectedPropertyRange);
     },
     selectedPropertyType: function selectedPropertyType() {
-      this.$emit('propertytypechange', this.selectedPropertyType);
+      this.$emit('propertyTypeChange', this.selectedPropertyType);
     },
     selectedPostcode: function selectedPostcode() {
-      this.$emit('postcodechange', this.selectedPostcode);
+      this.$emit('postcodeChange', this.selectedPostcode);
     }
   },
   methods: {
@@ -515,9 +530,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["value"],
+  props: {
+    value: String
+  },
   data: function data() {
     return {
       isOpen: false
@@ -1036,18 +1052,18 @@ var render = function() {
           _c("search-filters", {
             attrs: {
               postcodes: _vm.postcodes,
-              propertyrangevalue: _vm.priceRange,
-              propertytypechecked: _vm.propertyType,
-              postcodechecked: _vm.postcode
+              "property-range-value": _vm.priceRange,
+              "property-type-checked": _vm.propertyType,
+              "postcode-checked": _vm.postcode
             },
             on: {
-              propertyrangeinput: function($event) {
+              propertyRangeInput: function($event) {
                 _vm.priceRange = $event
               },
-              propertytypechange: function($event) {
+              propertyTypeChange: function($event) {
                 _vm.propertyType = $event
               },
-              postcodechange: function($event) {
+              postcodeChange: function($event) {
                 _vm.postcode = $event
               }
             }
@@ -1056,11 +1072,11 @@ var render = function() {
           _c(
             "main",
             { staticClass: "py-6 xl:flex-1 xl:overflow-x-hidden" },
-            [_c("deck", { attrs: { groups: _vm.filteredGroups } })],
+            [_c("card-deck", { attrs: { groups: _vm.filteredGroups } })],
             1
           ),
           _vm._v(" "),
-          _c("copyright", { staticClass: "xl:hidden" })
+          _c("copyright-footer", { staticClass: "xl:hidden" })
         ],
         1
       )
@@ -1075,107 +1091,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a& ***!
-  \*******************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "relative pb-5/6" }, [
-      _c("img", {
-        staticClass:
-          "absolute inset-0 h-full w-full rounded-lg shadow-md object-cover",
-        attrs: { src: _vm.street.thumbnail, alt: _vm.street.name }
-      })
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "relative px-4 -mt-8" }, [
-      _c(
-        "div",
-        { staticClass: "bg-white rounded-lg px-4 py-2 shadow-lg uppercase" },
-        [
-          _c(
-            "h4",
-            {
-              staticClass:
-                "mt-1 text-gray-900 font-semibold text-lg inline-block"
-            },
-            [_vm._v(_vm._s(_vm.street.name))]
-          ),
-          _vm._v(" "),
-          _vm.street.postcode
-            ? _c("span", { staticClass: "text-red-700" }, [
-                _vm._v(_vm._s(_vm.street.postcode))
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm.street.borough
-            ? _c("div", { staticClass: "mt-2 border-t border-gray-900" }, [
-                _c(
-                  "span",
-                  { staticClass: "text-red-700 text-xs tracking-wider" },
-                  [_vm._v(_vm._s(_vm.street.borough))]
-                )
-              ])
-            : _c("div", { staticClass: "mb-1" })
-        ]
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28&":
-/*!************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28& ***!
-  \************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "bg-gray-900 text-white px-4 py-4" }, [
-    _c("div", { staticClass: "text-gray-500 text-sm font-semibold" }, [
-      _vm._v("London Monopoly Streets")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mt-1 text-xs" }, [
-      _vm._v("Copyright © 2002 - " + _vm._s(_vm.currentYear) + " Bavanco")
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Deck.vue?vue&type=template&id=753411d8&":
-/*!*******************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Deck.vue?vue&type=template&id=753411d8& ***!
-  \*******************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4& ***!
+  \***********************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1232,7 +1151,7 @@ var render = function() {
                       staticClass: "sm:mt-0 sm:w-80 sm:flex-shrink-0",
                       class: { "mt-10 sm:ml-4": i > 0 }
                     },
-                    [_c("card", { attrs: { street: street } })],
+                    [_c("deed-card", { attrs: { street: street } })],
                     1
                   )
                 }),
@@ -1260,6 +1179,103 @@ var render = function() {
       },
       [_vm._v("\n        No results found for selected search.\n    ")]
     )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "bg-gray-900 text-white px-4 py-4" }, [
+    _c("div", { staticClass: "text-gray-500 text-sm font-semibold" }, [
+      _vm._v("London Monopoly Streets")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mt-1 text-xs" }, [
+      _vm._v("Copyright © 2002 - " + _vm._s(_vm.currentYear) + " Bavanco")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "relative pb-5/6" }, [
+      _c("img", {
+        staticClass:
+          "absolute inset-0 h-full w-full rounded-lg shadow-md object-cover",
+        attrs: { src: _vm.street.thumbnail, alt: _vm.street.name }
+      })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "relative px-4 -mt-8" }, [
+      _c(
+        "div",
+        { staticClass: "bg-white rounded-lg px-4 py-2 shadow-lg uppercase" },
+        [
+          _c(
+            "h4",
+            {
+              staticClass:
+                "mt-1 text-gray-900 font-semibold text-lg inline-block"
+            },
+            [_vm._v(_vm._s(_vm.street.name))]
+          ),
+          _vm._v(" "),
+          _vm.street.postcode
+            ? _c("span", { staticClass: "text-red-700" }, [
+                _vm._v(_vm._s(_vm.street.postcode))
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.street.borough
+            ? _c("div", { staticClass: "mt-2 border-t border-gray-900" }, [
+                _c(
+                  "span",
+                  { staticClass: "text-red-700 text-xs tracking-wider" },
+                  [_vm._v(_vm._s(_vm.street.borough))]
+                )
+              ])
+            : _c("div", { staticClass: "mb-1" })
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -1590,6 +1606,7 @@ var render = function() {
                   return _c(
                     "label",
                     {
+                      key: i,
                       staticClass:
                         "mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full"
                     },
@@ -1648,7 +1665,7 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("copyright", { staticClass: "hidden xl:block" })
+        _c("copyright-footer", { staticClass: "hidden xl:block" })
       ],
       1
     )
@@ -14027,11 +14044,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('app', __webpack_require__(/*! ./components/App.vue */ "./resources/js/components/App.vue")["default"]);
-Vue.component('card', __webpack_require__(/*! ./components/Card.vue */ "./resources/js/components/Card.vue")["default"]);
-Vue.component('deck', __webpack_require__(/*! ./components/Deck.vue */ "./resources/js/components/Deck.vue")["default"]);
-Vue.component('copyright', __webpack_require__(/*! ./components/Copyright.vue */ "./resources/js/components/Copyright.vue")["default"]);
-Vue.component('search-filters', __webpack_require__(/*! ./components/SearchFilters.vue */ "./resources/js/components/SearchFilters.vue")["default"]);
+Vue.component('deed-card', __webpack_require__(/*! ./components/DeedCard.vue */ "./resources/js/components/DeedCard.vue")["default"]);
+Vue.component('card-deck', __webpack_require__(/*! ./components/CardDeck.vue */ "./resources/js/components/CardDeck.vue")["default"]);
 Vue.component('site-header', __webpack_require__(/*! ./components/SiteHeader.vue */ "./resources/js/components/SiteHeader.vue")["default"]);
+Vue.component('search-filters', __webpack_require__(/*! ./components/SearchFilters.vue */ "./resources/js/components/SearchFilters.vue")["default"]);
+Vue.component('copyright-footer', __webpack_require__(/*! ./components/CopyrightFooter.vue */ "./resources/js/components/CopyrightFooter.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -14113,17 +14130,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Card.vue":
-/*!******************************************!*\
-  !*** ./resources/js/components/Card.vue ***!
-  \******************************************/
+/***/ "./resources/js/components/CardDeck.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/CardDeck.vue ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Card.vue?vue&type=template&id=b9bc2c0a& */ "./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a&");
-/* harmony import */ var _Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Card.vue?vue&type=script&lang=js& */ "./resources/js/components/Card.vue?vue&type=script&lang=js&");
+/* harmony import */ var _CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDeck.vue?vue&type=template&id=579a64c4& */ "./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4&");
+/* harmony import */ var _CardDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDeck.vue?vue&type=script&lang=js& */ "./resources/js/components/CardDeck.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -14133,9 +14150,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CardDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -14145,54 +14162,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Card.vue"
+component.options.__file = "resources/js/components/CardDeck.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/Card.vue?vue&type=script&lang=js&":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/Card.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
+/***/ "./resources/js/components/CardDeck.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/CardDeck.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Card.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Card.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CardDeck.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDeck.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDeck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a& ***!
-  \*************************************************************************/
+/***/ "./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4& ***!
+  \*****************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Card.vue?vue&type=template&id=b9bc2c0a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Card.vue?vue&type=template&id=b9bc2c0a&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CardDeck.vue?vue&type=template&id=579a64c4& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDeck.vue?vue&type=template&id=579a64c4&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Card_vue_vue_type_template_id_b9bc2c0a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDeck_vue_vue_type_template_id_579a64c4___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
 /***/ }),
 
-/***/ "./resources/js/components/Copyright.vue":
-/*!***********************************************!*\
-  !*** ./resources/js/components/Copyright.vue ***!
-  \***********************************************/
+/***/ "./resources/js/components/CopyrightFooter.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/CopyrightFooter.vue ***!
+  \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Copyright.vue?vue&type=template&id=04aa3b28& */ "./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28&");
-/* harmony import */ var _Copyright_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Copyright.vue?vue&type=script&lang=js& */ "./resources/js/components/Copyright.vue?vue&type=script&lang=js&");
+/* harmony import */ var _CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CopyrightFooter.vue?vue&type=template&id=5d8affa7& */ "./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7&");
+/* harmony import */ var _CopyrightFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CopyrightFooter.vue?vue&type=script&lang=js& */ "./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -14202,9 +14219,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Copyright_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _CopyrightFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -14214,54 +14231,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Copyright.vue"
+component.options.__file = "resources/js/components/CopyrightFooter.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/Copyright.vue?vue&type=script&lang=js&":
-/*!************************************************************************!*\
-  !*** ./resources/js/components/Copyright.vue?vue&type=script&lang=js& ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Copyright_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Copyright.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Copyright.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Copyright_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28&":
+/***/ "./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js&":
 /*!******************************************************************************!*\
-  !*** ./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28& ***!
+  !*** ./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js& ***!
   \******************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Copyright.vue?vue&type=template&id=04aa3b28& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Copyright.vue?vue&type=template&id=04aa3b28&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Copyright_vue_vue_type_template_id_04aa3b28___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/Deck.vue":
-/*!******************************************!*\
-  !*** ./resources/js/components/Deck.vue ***!
-  \******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Deck.vue?vue&type=template&id=753411d8& */ "./resources/js/components/Deck.vue?vue&type=template&id=753411d8&");
-/* harmony import */ var _Deck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Deck.vue?vue&type=script&lang=js& */ "./resources/js/components/Deck.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CopyrightFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CopyrightFooter.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CopyrightFooter.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CopyrightFooter_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CopyrightFooter.vue?vue&type=template&id=5d8affa7& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CopyrightFooter.vue?vue&type=template&id=5d8affa7&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CopyrightFooter_vue_vue_type_template_id_5d8affa7___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/DeedCard.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/DeedCard.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeedCard.vue?vue&type=template&id=28e0097b& */ "./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b&");
+/* harmony import */ var _DeedCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeedCard.vue?vue&type=script&lang=js& */ "./resources/js/components/DeedCard.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -14271,9 +14288,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _Deck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _DeedCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -14283,38 +14300,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Deck.vue"
+component.options.__file = "resources/js/components/DeedCard.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/Deck.vue?vue&type=script&lang=js&":
-/*!*******************************************************************!*\
-  !*** ./resources/js/components/Deck.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************/
+/***/ "./resources/js/components/DeedCard.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/DeedCard.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Deck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Deck.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Deck.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Deck_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeedCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./DeedCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DeedCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_DeedCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Deck.vue?vue&type=template&id=753411d8&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/Deck.vue?vue&type=template&id=753411d8& ***!
-  \*************************************************************************/
+/***/ "./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b& ***!
+  \*****************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Deck.vue?vue&type=template&id=753411d8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Deck.vue?vue&type=template&id=753411d8&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./DeedCard.vue?vue&type=template&id=28e0097b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/DeedCard.vue?vue&type=template&id=28e0097b&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Deck_vue_vue_type_template_id_753411d8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DeedCard_vue_vue_type_template_id_28e0097b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

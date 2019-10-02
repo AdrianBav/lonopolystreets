@@ -67,7 +67,7 @@
                 <div class="px-4 py-4 border-t border-gray-900 lg:w-1/3 lg:border-l xl:w-full">
                     <span class="block text-sm font-semibold text-gray-500">Postcode</span>
                     <div class="sm:flex sm:-mx-2 sm:flex-wrap">
-                        <label v-for="(postcode, i) in postcodes" class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
+                        <label v-for="(postcode, i) in postcodes" :key="i" class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
                             <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" :value="postcode" v-model="selectedPostcode">
                             <span class="ml-2 text-white">{{ postcode }}</span>
                         </label>
@@ -75,48 +75,48 @@
                 </div>
             </div>
 
-            <copyright class="hidden xl:block"></copyright>
+            <copyright-footer class="hidden xl:block"></copyright-footer>
         </form>
 
     </section>
 </template>
 
 <script>
-    import Copyright from "./Copyright";
+    import CopyrightFooter from "./CopyrightFooter";
 
     export default {
 
         components: {
-            Copyright,
+            CopyrightFooter,
         },
 
-        props: [
-            "postcodes",
-            "propertyrangevalue",
-            "propertytypechecked",
-            "postcodechecked",
-        ],
+        props: {
+            postcodes: Array,
+            propertyRangeValue: String,
+            propertyTypeChecked: String,
+            postcodeChecked: Array,
+        },
 
         data() {
             return {
                 isOpen: false,
-                selectedPropertyRange: this.propertyrangevalue,
-                selectedPropertyType: this.propertytypechecked,
-                selectedPostcode: this.postcodechecked,
+                selectedPropertyRange: this.propertyRangeValue,
+                selectedPropertyType: this.propertyTypeChecked,
+                selectedPostcode: this.postcodeChecked,
             };
         },
 
         watch: {
             selectedPropertyRange() {
-                this.$emit('propertyrangeinput', this.selectedPropertyRange);
+                this.$emit('propertyRangeInput', this.selectedPropertyRange);
             },
 
             selectedPropertyType() {
-                this.$emit('propertytypechange', this.selectedPropertyType);
+                this.$emit('propertyTypeChange', this.selectedPropertyType);
             },
 
             selectedPostcode() {
-                this.$emit('postcodechange', this.selectedPostcode);
+                this.$emit('postcodeChange', this.selectedPostcode);
             },
         },
 

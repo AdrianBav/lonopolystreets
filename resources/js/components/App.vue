@@ -5,38 +5,40 @@
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
             <search-filters
                 :postcodes=postcodes
-                :propertyrangevalue="priceRange" @propertyrangeinput="priceRange = $event"
-                :propertytypechecked="propertyType" @propertytypechange="propertyType = $event"
-                :postcodechecked="postcode" @postcodechange="postcode = $event"
+                :property-range-value="priceRange" @propertyRangeInput="priceRange = $event"
+                :property-type-checked="propertyType" @propertyTypeChange="propertyType = $event"
+                :postcode-checked="postcode" @postcodeChange="postcode = $event"
             >
             </search-filters>
 
             <main class="py-6 xl:flex-1 xl:overflow-x-hidden">
-                <deck :groups=filteredGroups></deck>
+                <card-deck :groups=filteredGroups></card-deck>
             </main>
 
-            <copyright class="xl:hidden"></copyright>
+            <copyright-footer class="xl:hidden"></copyright-footer>
         </div>
     </div>
 </template>
 
 <script>
+    import CardDeck from "./CardDeck";
     import SiteHeader from "./SiteHeader";
     import SearchFilters from "./SearchFilters";
-    import Copyright from "./Copyright";
+    import CopyrightFooter from "./CopyrightFooter";
 
     export default {
 
         components: {
+            CardDeck,
             SiteHeader,
             SearchFilters,
-            Copyright,
+            CopyrightFooter,
         },
 
-        props: [
-            "groups",
-            "postcodes",
-        ],
+        props: {
+            groups: Object,
+            postcodes: Array,
+        },
 
         data() {
             return {
@@ -50,7 +52,7 @@
         computed: {
             filteredGroups: function() {
                 // Postcode
-                if ( this.postcode ) {
+                if ( this.postcode.length > 0 ) {
                     if ( this.postcode == "E1" ) {
                         return this.groups.filter( group => group.id == 1 );
                     } else if ( this.postcode == "EC2" ) {

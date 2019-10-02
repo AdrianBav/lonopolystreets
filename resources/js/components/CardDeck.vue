@@ -15,7 +15,7 @@
                 <div class="mt-6 sm:overflow-x-auto sm:overflow-y-hidden">
                     <div class="px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8">
                         <div v-for="(street, i) in group.streets" :class="{'mt-10 sm:ml-4': i > 0 }" class="sm:mt-0 sm:w-80 sm:flex-shrink-0">
-                            <card :street="street"></card>
+                            <deed-card :street="street"></deed-card>
                         </div>
                     </div>
                 </div>
@@ -31,17 +31,17 @@
 </template>
 
 <script>
-    import Card from "./Card";
+    import DeedCard from "./DeedCard";
 
     export default {
 
         components: {
-            Card,
+            DeedCard,
         },
 
-        props: [
-            "groups",
-        ],
+        props: {
+            groups: Object,
+        },
 
         methods: {
             icon( groupName ) {

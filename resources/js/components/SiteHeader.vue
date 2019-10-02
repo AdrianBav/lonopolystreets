@@ -27,8 +27,7 @@
                 <input
                     class="block w-full border border-transparent bg-gray-200 focus:outline-none focus:bg-white focus:border-gray-300 text-gray-900 rounded-lg pl-10 pr-4 py-2"
                     placeholder="Search by keywords"
-                    v-bind:value="value"
-                    v-on:input="$emit('input', $event.target.value)"
+                    :value="value" @input="$emit('input', $event.target.value)"
                 >
             </div>
 
@@ -46,9 +45,9 @@
 <script>
     export default {
 
-        props: [
-            "value",
-        ],
+        props: {
+            value: String,
+        },
 
         data() {
             return {
