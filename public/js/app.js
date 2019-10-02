@@ -133,9 +133,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       searchText: "",
-      priceRange: 400,
+      priceRange: "400",
       propertyType: "all",
-      postcode: ""
+      postcode: []
     };
   },
   computed: {
@@ -428,12 +428,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -442,8 +436,22 @@ __webpack_require__.r(__webpack_exports__);
   props: ["postcodes", "propertyrangevalue", "propertytypechecked", "postcodechecked"],
   data: function data() {
     return {
-      isOpen: false
+      isOpen: false,
+      selectedPropertyRange: this.propertyrangevalue,
+      selectedPropertyType: this.propertytypechecked,
+      selectedPostcode: this.postcodechecked
     };
+  },
+  watch: {
+    selectedPropertyRange: function selectedPropertyRange() {
+      this.$emit('propertyrangeinput', this.selectedPropertyRange);
+    },
+    selectedPropertyType: function selectedPropertyType() {
+      this.$emit('propertytypechange', this.selectedPropertyType);
+    },
+    selectedPostcode: function selectedPostcode() {
+      this.$emit('postcodechange', this.selectedPostcode);
+    }
   },
   methods: {
     toggle: function toggle() {
@@ -1379,6 +1387,14 @@ var render = function() {
                     ),
                     _vm._v(" "),
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPropertyRange,
+                          expression: "selectedPropertyRange"
+                        }
+                      ],
                       staticClass: "custom-range block mt-1",
                       attrs: {
                         type: "range",
@@ -1386,13 +1402,10 @@ var render = function() {
                         max: "400",
                         step: "20"
                       },
-                      domProps: { value: _vm.propertyrangevalue },
+                      domProps: { value: _vm.selectedPropertyRange },
                       on: {
-                        input: function($event) {
-                          return _vm.$emit(
-                            "propertyrangeinput",
-                            $event.target.value
-                          )
+                        __r: function($event) {
+                          _vm.selectedPropertyRange = $event.target.value
                         }
                       }
                     }),
@@ -1426,19 +1439,22 @@ var render = function() {
                   },
                   [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPropertyType,
+                          expression: "selectedPropertyType"
+                        }
+                      ],
                       staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                      attrs: {
-                        type: "radio",
-                        name: "propertyType[]",
-                        value: "all"
+                      attrs: { type: "radio", value: "all" },
+                      domProps: {
+                        checked: _vm._q(_vm.selectedPropertyType, "all")
                       },
-                      domProps: { checked: _vm.propertytypechecked },
                       on: {
                         change: function($event) {
-                          return _vm.$emit(
-                            "propertytypechange",
-                            $event.target.value
-                          )
+                          _vm.selectedPropertyType = "all"
                         }
                       }
                     }),
@@ -1457,19 +1473,22 @@ var render = function() {
                   },
                   [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPropertyType,
+                          expression: "selectedPropertyType"
+                        }
+                      ],
                       staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                      attrs: {
-                        type: "radio",
-                        name: "propertyType[]",
-                        value: "property"
+                      attrs: { type: "radio", value: "property" },
+                      domProps: {
+                        checked: _vm._q(_vm.selectedPropertyType, "property")
                       },
-                      domProps: { checked: _vm.propertytypechecked },
                       on: {
                         change: function($event) {
-                          return _vm.$emit(
-                            "propertytypechange",
-                            $event.target.value
-                          )
+                          _vm.selectedPropertyType = "property"
                         }
                       }
                     }),
@@ -1488,19 +1507,22 @@ var render = function() {
                   },
                   [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPropertyType,
+                          expression: "selectedPropertyType"
+                        }
+                      ],
                       staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                      attrs: {
-                        type: "radio",
-                        name: "propertyType[]",
-                        value: "station"
+                      attrs: { type: "radio", value: "station" },
+                      domProps: {
+                        checked: _vm._q(_vm.selectedPropertyType, "station")
                       },
-                      domProps: { checked: _vm.propertytypechecked },
                       on: {
                         change: function($event) {
-                          return _vm.$emit(
-                            "propertytypechange",
-                            $event.target.value
-                          )
+                          _vm.selectedPropertyType = "station"
                         }
                       }
                     }),
@@ -1519,19 +1541,22 @@ var render = function() {
                   },
                   [
                     _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPropertyType,
+                          expression: "selectedPropertyType"
+                        }
+                      ],
                       staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
-                      attrs: {
-                        type: "radio",
-                        name: "propertyType[]",
-                        value: "utility"
+                      attrs: { type: "radio", value: "utility" },
+                      domProps: {
+                        checked: _vm._q(_vm.selectedPropertyType, "utility")
                       },
-                      domProps: { checked: _vm.propertytypechecked },
                       on: {
                         change: function($event) {
-                          return _vm.$emit(
-                            "propertytypechange",
-                            $event.target.value
-                          )
+                          _vm.selectedPropertyType = "utility"
                         }
                       }
                     }),
@@ -1570,19 +1595,43 @@ var render = function() {
                     },
                     [
                       _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.selectedPostcode,
+                            expression: "selectedPostcode"
+                          }
+                        ],
                         staticClass:
                           "form-checkbox bg-gray-900 focus:bg-gray-700",
-                        attrs: { type: "checkbox", name: "postcode[]" },
+                        attrs: { type: "checkbox" },
                         domProps: {
                           value: postcode,
-                          checked: _vm.postcodechecked
+                          checked: Array.isArray(_vm.selectedPostcode)
+                            ? _vm._i(_vm.selectedPostcode, postcode) > -1
+                            : _vm.selectedPostcode
                         },
                         on: {
                           change: function($event) {
-                            return _vm.$emit(
-                              "postcodechange",
-                              $event.target.value
-                            )
+                            var $$a = _vm.selectedPostcode,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = postcode,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.selectedPostcode = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.selectedPostcode = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.selectedPostcode = $$c
+                            }
                           }
                         }
                       }),

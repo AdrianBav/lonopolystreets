@@ -31,13 +31,7 @@
                     <div class="flex flex-wrap -mx-2">
                         <label class="mt-4 block w-full px-2 sm:mt-0 sm:w-1/2 lg:mt-4 lg:w-full">
                             <span class="text-sm font-semibold text-gray-500">Price Range</span>
-                            <input
-                                class="custom-range block mt-1"
-                                type="range"
-                                min="60" max="400" step="20"
-                                v-bind:value="propertyrangevalue"
-                                v-on:input="$emit('propertyrangeinput', $event.target.value)"
-                            >
+                            <input class="custom-range block mt-1" type="range" min="60" max="400" step="20" v-model="selectedPropertyRange">
                             <div class="flex justify-between">
                                 <label class="text-xs text-white">Low</label>
                                 <label class="text-xs text-white">High</label>
@@ -51,19 +45,19 @@
                     <span class="block text-sm font-semibold text-gray-500">Property Type</span>
                     <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType[]" value="all" v-bind:checked="propertytypechecked" v-on:change="$emit('propertytypechange', $event.target.value)">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="all" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">All</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType[]" value="property" v-bind:checked="propertytypechecked" v-on:change="$emit('propertytypechange', $event.target.value)">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="property" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Property</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType[]" value="station" v-bind:checked="propertytypechecked" v-on:change="$emit('propertytypechange', $event.target.value)">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="station" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Station</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" name="propertyType[]" value="utility" v-bind:checked="propertytypechecked" v-on:change="$emit('propertytypechange', $event.target.value)">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="utility" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Utility</span>
                         </label>
                     </div>
@@ -74,7 +68,7 @@
                     <span class="block text-sm font-semibold text-gray-500">Postcode</span>
                     <div class="sm:flex sm:-mx-2 sm:flex-wrap">
                         <label v-for="(postcode, i) in postcodes" class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" name="postcode[]" :value="postcode" v-bind:checked="postcodechecked" v-on:change="$emit('postcodechange', $event.target.value)">
+                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" :value="postcode" v-model="selectedPostcode">
                             <span class="ml-2 text-white">{{ postcode }}</span>
                         </label>
                     </div>
@@ -106,7 +100,24 @@
         data() {
             return {
                 isOpen: false,
+                selectedPropertyRange: this.propertyrangevalue,
+                selectedPropertyType: this.propertytypechecked,
+                selectedPostcode: this.postcodechecked,
             };
+        },
+
+        watch: {
+            selectedPropertyRange() {
+                this.$emit('propertyrangeinput', this.selectedPropertyRange);
+            },
+
+            selectedPropertyType() {
+                this.$emit('propertytypechange', this.selectedPropertyType);
+            },
+
+            selectedPostcode() {
+                this.$emit('postcodechange', this.selectedPostcode);
+            },
         },
 
         methods: {

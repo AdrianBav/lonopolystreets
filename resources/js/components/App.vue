@@ -5,9 +5,9 @@
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
             <search-filters
                 :postcodes=postcodes
-                v-bind:propertyrangevalue="priceRange" v-on:propertyrangeinput="priceRange = $event"
-                v-bind:propertytypechecked="propertyType" v-on:propertytypechange="propertyType = $event"
-                v-bind:postcodechecked="postcode" v-on:postcodechange="postcode = $event"
+                :propertyrangevalue="priceRange" @propertyrangeinput="priceRange = $event"
+                :propertytypechecked="propertyType" @propertytypechange="propertyType = $event"
+                :postcodechecked="postcode" @postcodechange="postcode = $event"
             >
             </search-filters>
 
@@ -41,9 +41,9 @@
         data() {
             return {
                 searchText: "",
-                priceRange: 400,
+                priceRange: "400",
                 propertyType: "all",
-                postcode: "",
+                postcode: [],
             };
         },
 
