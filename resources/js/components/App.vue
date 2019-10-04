@@ -1,6 +1,6 @@
 <template>
     <div>
-        <site-header v-model="searchText" class="xl:flex-shrink-0"></site-header>
+        <site-header :header-search-value="searchText" @headerSearchInput="searchText = $event" class="xl:flex-shrink-0"></site-header>
 
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
             <search-filters
