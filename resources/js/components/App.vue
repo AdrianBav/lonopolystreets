@@ -52,7 +52,7 @@
 
         computed: {
             filteredGroups: function() {
-                this.selectedGroups = this.groups;
+                this.selectedGroups = JSON.parse( JSON.stringify( this.groups ) );
 
                 if ( this.postcode.length > 0 ) {
                     this.filterByPostcode();

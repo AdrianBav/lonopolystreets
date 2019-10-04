@@ -147,7 +147,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     filteredGroups: function filteredGroups() {
-      this.selectedGroups = this.groups;
+      this.selectedGroups = JSON.parse(JSON.stringify(this.groups));
 
       if (this.postcode.length > 0) {
         this.filterByPostcode();
