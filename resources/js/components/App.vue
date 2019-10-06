@@ -1,10 +1,14 @@
 <template>
     <div>
-        <site-header :header-search-value="searchText" @headerSearchInput="searchText = $event" class="xl:flex-shrink-0"></site-header>
+        <site-header
+            class="xl:flex-shrink-0"
+            :header-search-value="searchText" @headerSearchInput="searchText = $event"
+        ></site-header>
 
         <div class="xl:flex-1 xl:flex xl:overflow-y-hidden">
             <search-filters
                 :postcodes=postcodes
+                :filter-search-value="searchText" @filterSearchInput="searchText = $event"
                 :property-range-value="priceRange" @propertyRangeInput="priceRange = $event"
                 :property-type-checked="propertyType" @propertyTypeChange="propertyType = $event"
                 :postcode-checked="postcode" @postcodeChange="postcode = $event"

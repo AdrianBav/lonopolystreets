@@ -121,6 +121,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -377,14 +381,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     value: String
@@ -396,7 +392,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     searchText: function searchText() {
-      this.$emit('input', this.searchText);
+      this.$emit("input", this.searchText);
     }
   }
 });
@@ -412,12 +408,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CopyrightFooter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CopyrightFooter */ "./resources/js/components/CopyrightFooter.vue");
-//
-//
-//
-//
-//
+/* harmony import */ var _SearchBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBox */ "./resources/js/components/SearchBox.vue");
+/* harmony import */ var _CopyrightFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CopyrightFooter */ "./resources/js/components/CopyrightFooter.vue");
 //
 //
 //
@@ -503,12 +495,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    CopyrightFooter: _CopyrightFooter__WEBPACK_IMPORTED_MODULE_0__["default"]
+    SearchBox: _SearchBox__WEBPACK_IMPORTED_MODULE_0__["default"],
+    CopyrightFooter: _CopyrightFooter__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     postcodes: Array,
+    filterSearchValue: String,
     propertyRangeValue: String,
     propertyTypeChecked: String,
     postcodeChecked: Array
@@ -516,20 +511,24 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isOpen: false,
+      filterSearchText: this.filterSearchValue,
       selectedPropertyRange: this.propertyRangeValue,
       selectedPropertyType: this.propertyTypeChecked,
       selectedPostcode: this.postcodeChecked
     };
   },
   watch: {
+    filterSearchText: function filterSearchText() {
+      this.$emit("filterSearchInput", this.filterSearchText);
+    },
     selectedPropertyRange: function selectedPropertyRange() {
-      this.$emit('propertyRangeInput', this.selectedPropertyRange);
+      this.$emit("propertyRangeInput", this.selectedPropertyRange);
     },
     selectedPropertyType: function selectedPropertyType() {
-      this.$emit('propertyTypeChange', this.selectedPropertyType);
+      this.$emit("propertyTypeChange", this.selectedPropertyType);
     },
     selectedPostcode: function selectedPostcode() {
-      this.$emit('postcodeChange', this.selectedPostcode);
+      this.$emit("postcodeChange", this.selectedPostcode);
     }
   },
   methods: {
@@ -591,6 +590,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -607,7 +609,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     headerSearchText: function headerSearchText() {
-      this.$emit('headerSearchInput', this.headerSearchText);
+      this.$emit("headerSearchInput", this.headerSearchText);
     }
   },
   methods: {
@@ -1122,11 +1124,15 @@ var render = function() {
           _c("search-filters", {
             attrs: {
               postcodes: _vm.postcodes,
+              "filter-search-value": _vm.searchText,
               "property-range-value": _vm.priceRange,
               "property-type-checked": _vm.propertyType,
               "postcode-checked": _vm.postcode
             },
             on: {
+              filterSearchInput: function($event) {
+                _vm.searchText = $event
+              },
               propertyRangeInput: function($event) {
                 _vm.priceRange = $event
               },
@@ -1370,56 +1376,28 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "absolute inset-y-0 left-0 flex items-center pl-3" },
-      [
-        _c(
-          "svg",
-          {
-            staticClass: "h-6 w-6 fill-current text-gray-600",
-            attrs: {
-              viewBox: "0 0 24 24",
-              fill: "none",
-              xmlns: "http://www.w3.org/2000/svg"
-            }
-          },
-          [
-            _c("path", {
-              attrs: {
-                d:
-                  "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
-              }
-            })
-          ]
-        )
-      ]
-    ),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.searchText,
-          expression: "searchText"
-        }
-      ],
-      staticClass:
-        "block w-full border border-transparent bg-gray-200 focus:outline-none focus:bg-white focus:border-gray-300 text-gray-900 rounded-lg pl-10 pr-4 py-2",
-      attrs: { placeholder: "Search by keywords" },
-      domProps: { value: _vm.searchText },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.searchText = $event.target.value
-        }
+  return _c("input", {
+    directives: [
+      {
+        name: "model",
+        rawName: "v-model",
+        value: _vm.searchText,
+        expression: "searchText"
       }
-    })
-  ])
+    ],
+    staticClass:
+      "block w-full focus:outline-none focus:bg-white rounded-lg pl-10 pr-4 py-2",
+    attrs: { placeholder: "Search by keywords" },
+    domProps: { value: _vm.searchText },
+    on: {
+      input: function($event) {
+        if ($event.target.composing) {
+          return
+        }
+        _vm.searchText = $event.target.value
+      }
+    }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1445,39 +1423,49 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "bg-gray-800 xl:w-72" }, [
     _c("div", { staticClass: "flex justify-between px-4 py-3 xl:hidden" }, [
-      _c("div", { staticClass: "relative max-w-xs w-full" }, [
-        _c(
-          "div",
-          { staticClass: "absolute inset-y-0 left-0 flex items-center pl-3" },
-          [
-            _c(
-              "svg",
-              {
-                staticClass: "h-6 w-6 fill-current text-gray-600",
-                attrs: {
-                  viewBox: "0 0 24 24",
-                  fill: "none",
-                  xmlns: "http://www.w3.org/2000/svg"
-                }
-              },
-              [
-                _c("path", {
+      _c(
+        "div",
+        { staticClass: "relative max-w-xs w-full" },
+        [
+          _c(
+            "div",
+            { staticClass: "absolute inset-y-0 left-0 flex items-center pl-3" },
+            [
+              _c(
+                "svg",
+                {
+                  staticClass: "h-6 w-6 fill-current text-gray-600",
                   attrs: {
-                    d:
-                      "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                    viewBox: "0 0 24 24",
+                    fill: "none",
+                    xmlns: "http://www.w3.org/2000/svg"
                   }
-                })
-              ]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("input", {
-          staticClass:
-            "block w-full bg-gray-900 focus:outline-none focus:bg-white focus:text-gray-900 text-white rounded-lg pl-10 pr-4 py-2",
-          attrs: { placeholder: "Search by keywords" }
-        })
-      ]),
+                },
+                [
+                  _c("path", {
+                    attrs: {
+                      d:
+                        "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                    }
+                  })
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
+          _c("search-box", {
+            staticClass: "bg-gray-900 focus:text-gray-900 text-white",
+            model: {
+              value: _vm.filterSearchText,
+              callback: function($$v) {
+                _vm.filterSearchText = $$v
+              },
+              expression: "filterSearchText"
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -1962,7 +1950,38 @@ var render = function() {
               staticClass: "hidden xl:block xl:relative xl:max-w-xs xl:w-full"
             },
             [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "absolute inset-y-0 left-0 flex items-center pl-3"
+                },
+                [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "h-6 w-6 fill-current text-gray-600",
+                      attrs: {
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        xmlns: "http://www.w3.org/2000/svg"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M16.32 14.9l1.1 1.1c.4-.02.83.13 1.14.44l3 3a1.5 1.5 0 0 1-2.12 2.12l-3-3a1.5 1.5 0 0 1-.44-1.14l-1.1-1.1a8 8 0 1 1 1.41-1.41l.01-.01zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"
+                        }
+                      })
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
               _c("search-box", {
+                staticClass:
+                  "border border-transparent bg-gray-200 focus:border-gray-300 text-gray-900",
                 model: {
                   value: _vm.headerSearchText,
                   callback: function($$v) {
