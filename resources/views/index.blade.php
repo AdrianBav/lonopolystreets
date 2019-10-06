@@ -12,7 +12,7 @@
     </head>
 
     <body>
-        <div id="app" class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-screen">
+        <div id="app" class="min-h-screen bg-gray-200 antialiased xl:flex xl:flex-col xl:h-full">
             <app :groups='@json($groups)' :postcodes='@json($postcodes)'></app>
         </div>
 
