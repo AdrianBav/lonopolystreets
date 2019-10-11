@@ -32,22 +32,26 @@
             <!-- Links -->
             <div class="sm:flex sm:items-center">
                 <div class="px-2 pt-2 pb-5 border-b border-gray-800 sm:flex sm:border-b-0 sm:py-0 sm:px-0">
-                    <a href="/about" class="block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900 xl:hover:bg-gray-200">About this site</a>
+                    <button type="button" @click="aboutModalOpen = true" class="block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:text-sm sm:px-2 xl:text-gray-900 xl:hover:bg-gray-200">About this site</button>
                     <a href="https://www.bavanco.co.uk/" target="_blank" class="mt-1 block px-3 py-1 rounded font-semibold text-white hover:bg-gray-800 sm:mt-0 sm:text-sm sm:px-2 sm:ml-2 xl:text-gray-900 xl:hover:bg-gray-200">Part of bavanco.co.uk</a></div></a>
                 </div>
             </div>
         </nav>
+
+        <about-modal :show="aboutModalOpen" @close="aboutModalOpen = false"></about-modal>
 
     </header>
 </template>
 
 <script>
     import SearchBox from "./SearchBox";
+    import AboutModal from './AboutModal.vue'
 
     export default {
 
         components: {
             SearchBox,
+            AboutModal,
         },
 
         props: {
@@ -58,6 +62,7 @@
             return {
                 isOpen: false,
                 headerSearchText: this.headerSearchValue,
+                aboutModalOpen: false,
             };
         },
 

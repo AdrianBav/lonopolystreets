@@ -16,6 +16,7 @@ Vue.component('deed-card', require('./components/DeedCard.vue').default);
 Vue.component('card-deck', require('./components/CardDeck.vue').default);
 Vue.component('search-box', require('./components/SearchBox.vue').default);
 Vue.component('site-header', require('./components/SiteHeader.vue').default);
+Vue.component('about-modal', require('./components/AboutModal.vue').default);
 Vue.component('search-filters', require('./components/SearchFilters.vue').default);
 Vue.component('copyright-footer', require('./components/CopyrightFooter.vue').default);
 
