@@ -119,8 +119,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["show"],
+  props: {
+    show: {
+      type: Boolean
+    }
+  },
   created: function created() {
     var _this = this;
 
@@ -685,6 +694,112 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.fade-enter-active[data-v-7b6e33cb],\n.fade-leave-active[data-v-7b6e33cb] {\n    transition: all 0.4s;\n}\n.fade-enter[data-v-7b6e33cb],\n.fade-leave-to[data-v-7b6e33cb] {\n    opacity: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
+/*!*************************************************!*\
+  !*** ./node_modules/css-loader/lib/css-base.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -1078,6 +1193,545 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/addStyles.js":
+/*!****************************************************!*\
+  !*** ./node_modules/style-loader/lib/addStyles.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getTarget = function (target, parent) {
+  if (parent){
+    return parent.querySelector(target);
+  }
+  return document.querySelector(target);
+};
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(target, parent) {
+                // If passing function in options, then use it for resolve "head" element.
+                // Useful for Shadow Root style i.e
+                // {
+                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
+                // }
+                if (typeof target === 'function') {
+                        return target();
+                }
+                if (typeof memo[target] === "undefined") {
+			var styleTarget = getTarget.call(this, target, parent);
+			// Special case to return head of iframe instead of iframe itself
+			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+				try {
+					// This will throw an exception if access to iframe is blocked
+					// due to cross-origin restrictions
+					styleTarget = styleTarget.contentDocument.head;
+				} catch(e) {
+					styleTarget = null;
+				}
+			}
+			memo[target] = styleTarget;
+		}
+		return memo[target]
+	};
+})();
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(/*! ./urls */ "./node_modules/style-loader/lib/urls.js");
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+        if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
+		var nextSibling = getElement(options.insertAt.before, target);
+		target.insertBefore(style, nextSibling);
+	} else {
+		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+
+	if(options.attrs.nonce === undefined) {
+		var nonce = getNonce();
+		if (nonce) {
+			options.attrs.nonce = nonce;
+		}
+	}
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	if(options.attrs.type === undefined) {
+		options.attrs.type = "text/css";
+	}
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function getNonce() {
+	if (false) {}
+
+	return __webpack_require__.nc;
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = typeof options.transform === 'function'
+		 ? options.transform(obj.css) 
+		 : options.transform.default(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/lib/urls.js":
+/*!***********************************************!*\
+  !*** ./node_modules/style-loader/lib/urls.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/timers-browserify/main.js":
 /*!************************************************!*\
   !*** ./node_modules/timers-browserify/main.js ***!
@@ -1153,10 +1807,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb& ***!
-  \*************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1168,46 +1822,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      directives: [
-        { name: "show", rawName: "v-show", value: _vm.show, expression: "show" }
-      ],
-      staticClass:
-        "fixed z-10 inset-0 w-full h-screen flex items-center justify-center",
-      staticStyle: { "background-color": "rgba(0, 0, 0, 0.75)" }
-    },
-    [
-      _c(
-        "div",
-        { staticClass: "w-full max-w-2xl bg-white shadow-lg rounded-lg p-8" },
-        [
-          _c("h1", { staticClass: "text-center text-2xl font-bold mb-4" }, [
-            _vm._v("\n            About this site\n        ")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "text-center text-gray-700 mb-6" }, [
-            _vm._v(
-              "\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At ut eligendi quod tempore totam explicabo sit consectetur architecto? Tempora, repellat est rem ut esse ab officia saepe ratione tempore. Obcaecati.\n        "
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center" }, [
-            _c(
-              "button",
-              {
-                staticClass: "bg-blue-500 text-white px-4 py-2 rounded",
-                attrs: { type: "button" },
-                on: { click: _vm.dismiss }
-              },
-              [_vm._v("\n                Thanks!\n            ")]
-            )
-          ])
-        ]
-      )
-    ]
-  )
+  return _c("Transition", { attrs: { name: "fade" } }, [
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.show,
+            expression: "show"
+          }
+        ],
+        staticClass:
+          "fixed z-10 inset-0 w-full h-screen flex items-center justify-center bg-semi-75"
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "w-full max-w-2xl bg-white shadow-lg rounded-lg p-8" },
+          [
+            _c("h1", { staticClass: "text-center text-2xl font-bold mb-4" }, [
+              _vm._v("\n                About this site\n            ")
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-center text-gray-700 mb-6" }, [
+              _vm._v(
+                "\n                When I lived in London, I spent some time visiting all of the streets in the London Monopoly set. I walked the entire street and took photographs.\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "text-center text-gray-700 mb-6" }, [
+              _vm._v(
+                "\n                This page showcases some of the photographs taken during these walks.\n            "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-center" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "bg-gray-500 text-white px-4 py-2 rounded",
+                  attrs: { type: "button" },
+                  on: { click: _vm.dismiss }
+                },
+                [_vm._v("\n                    Thanks!\n                ")]
+              )
+            ])
+          ]
+        )
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -2001,14 +2667,14 @@ var render = function() {
                 _c("path", {
                   attrs: {
                     d:
-                      "M38.31 39.9V45H15.96V14.64h6.34v25.25h16.01zM55.66 14.18c2.97 0 5.55.63 7.73 1.89a12.4 12.4 0 015.06 5.42c1.2 2.33 1.8 5.11 1.8 8.33 0 3.22-.6 6.01-1.8 8.37a12.45 12.45 0 01-5.06 5.38 15.19 15.19 0 01-7.73 1.89c-2.97 0-5.57-.63-7.77-1.89a12.73 12.73 0 01-5.11-5.38 18.72 18.72 0 01-1.75-8.37c0-3.22.58-6 1.75-8.33 1.2-2.36 2.9-4.17 5.1-5.42 2.21-1.26 4.8-1.89 7.78-1.89zm0 5.2c-2.58 0-4.57.9-5.98 2.71-1.38 1.78-2.07 4.36-2.07 7.73s.69 5.96 2.07 7.77c1.41 1.78 3.4 2.67 5.98 2.67 2.55 0 4.5-.89 5.89-2.67 1.4-1.8 2.11-4.4 2.11-7.77 0-3.37-.7-5.95-2.11-7.73-1.38-1.8-3.34-2.71-5.89-2.71zM102.73 45h-7.27L84.83 27.15l-2.62-5.1h-.04l.18 5.38V45h-5.7V14.64h7.22l10.62 17.8 2.63 5.15h.09l-.19-5.38V14.64h5.7V45zM123.76 14.18c2.98 0 5.55.63 7.73 1.89a12.4 12.4 0 015.06 5.42c1.2 2.33 1.8 5.11 1.8 8.33 0 3.22-.6 6.01-1.8 8.37a12.45 12.45 0 01-5.06 5.38 15.19 15.19 0 01-7.73 1.89c-2.97 0-5.57-.63-7.77-1.89a12.73 12.73 0 01-5.1-5.38 18.72 18.72 0 01-1.76-8.37c0-3.22.59-6 1.75-8.33 1.2-2.36 2.9-4.17 5.1-5.42 2.21-1.26 4.8-1.89 7.78-1.89zm0 5.2c-2.58 0-4.57.9-5.98 2.71-1.38 1.78-2.07 4.36-2.07 7.73s.7 5.96 2.07 7.77c1.41 1.78 3.4 2.67 5.98 2.67 2.55 0 4.5-.89 5.89-2.67 1.41-1.8 2.11-4.4 2.11-7.77 0-3.37-.7-5.95-2.11-7.73-1.38-1.8-3.34-2.71-5.89-2.71zM157.49 14.64c3.53 0 6.27.86 8.23 2.58 1.97 1.68 2.95 4.07 2.95 7.17 0 3-.98 5.35-2.95 7.04-1.96 1.69-4.7 2.53-8.23 2.53h-6.4V45h-6.34V14.64h12.74zm-.97 14.4c1.97 0 3.4-.39 4.33-1.15.92-.8 1.38-1.98 1.38-3.54 0-1.57-.46-2.73-1.38-3.5-.92-.77-2.36-1.15-4.33-1.15h-5.43v9.34h5.43zM187.6 14.18c2.97 0 5.55.63 7.72 1.89a12.4 12.4 0 015.06 5.42c1.2 2.33 1.8 5.11 1.8 8.33 0 3.22-.6 6.01-1.8 8.37a12.45 12.45 0 01-5.06 5.38 15.19 15.19 0 01-7.72 1.89c-2.98 0-5.57-.63-7.78-1.89a12.73 12.73 0 01-5.1-5.38 18.72 18.72 0 01-1.75-8.37c0-3.22.58-6 1.75-8.33 1.2-2.36 2.9-4.17 5.1-5.42 2.2-1.26 4.8-1.89 7.78-1.89zm0 5.2c-2.58 0-4.57.9-5.98 2.71-1.38 1.78-2.08 4.36-2.08 7.73s.7 5.96 2.08 7.77c1.4 1.78 3.4 2.67 5.97 2.67 2.55 0 4.51-.89 5.9-2.67 1.4-1.8 2.1-4.4 2.1-7.77 0-3.37-.7-5.95-2.1-7.73-1.39-1.8-3.35-2.71-5.9-2.71zM230.94 39.9V45h-22.36V14.64h6.35v25.25h16zM244.16 33.64V45h-6.34V33.64l-10.77-19h6.76l4.88 9.06 2.3 4.79 2.35-4.79 4.87-9.06h6.72l-10.77 19zM268.86 14.18c2.82 0 5.24.48 7.26 1.43 2.03.92 3.8 2.39 5.34 4.41l-4.37 4.28a8.4 8.4 0 00-3.17-3.68 9.28 9.28 0 00-5.02-1.24c-1.84 0-3.26.35-4.27 1.06a3.14 3.14 0 00-1.48 2.71c0 1.04.5 1.87 1.52 2.48 1.01.62 2.84 1.15 5.47 1.61 2.76.53 4.96 1.17 6.58 1.94a8.14 8.14 0 013.54 2.9 7.48 7.48 0 011.16 4.27c0 1.87-.54 3.5-1.62 4.88a9.96 9.96 0 01-4.41 3.13 17.5 17.5 0 01-6.44 1.1c-3.34 0-6.09-.46-8.24-1.38a12.28 12.28 0 01-5.15-4.28l3.77-4.5a9.93 9.93 0 003.92 3.9c1.47.7 3.3 1.06 5.47 1.06 1.96 0 3.45-.3 4.46-.92a2.9 2.9 0 001.56-2.62c0-.83-.49-1.52-1.47-2.07-.95-.55-2.66-1.07-5.15-1.56a31.76 31.76 0 01-6.85-2.07 8.7 8.7 0 01-3.68-2.95 7.7 7.7 0 01-1.15-4.32c0-1.81.49-3.44 1.47-4.88a9.68 9.68 0 014.28-3.45 16.6 16.6 0 016.67-1.24zM310.49 19.75h-10.17V45h-6.35V19.75h-10.2v-5.11h26.72v5.1zM327.63 33.36h-5.7V45h-6.25V14.64h13.38c3.47 0 6.17.83 8.1 2.48 1.96 1.63 2.94 3.93 2.94 6.9 0 2.18-.54 4-1.6 5.48a8.86 8.86 0 01-4.6 3.17l8 12.33h-7.13l-7.13-11.64zm-5.7-4.83h6.3c1.84 0 3.2-.35 4.05-1.06.89-.73 1.34-1.85 1.34-3.35s-.45-2.61-1.34-3.32c-.86-.73-2.2-1.1-4.05-1.1h-6.3v8.83zM370.35 39.9V45h-23.41V14.64h22.77v5.1h-16.42v7.55h12.92v4.88H353.3v7.72h17.06zM399.46 39.9V45h-23.41V14.64h22.77v5.1H382.4v7.55h12.92v4.88H382.4v7.72h17.06zM429.17 19.75H419V45h-6.34V19.75h-10.22v-5.11h26.73v5.1zM444.6 14.18c2.81 0 5.23.48 7.26 1.43 2.02.92 3.8 2.39 5.33 4.41l-4.37 4.28a8.4 8.4 0 00-3.17-3.68 9.28 9.28 0 00-5.01-1.24c-1.84 0-3.27.35-4.28 1.06a3.14 3.14 0 00-1.47 2.71c0 1.04.5 1.87 1.51 2.48 1.02.62 2.84 1.15 5.48 1.61 2.76.53 4.95 1.17 6.58 1.94a8.14 8.14 0 013.54 2.9 7.47 7.47 0 011.15 4.27c0 1.87-.54 3.5-1.61 4.88a9.96 9.96 0 01-4.42 3.13 17.5 17.5 0 01-6.44 1.1c-3.34 0-6.08-.46-8.23-1.38a12.28 12.28 0 01-5.15-4.28l3.77-4.5a9.93 9.93 0 003.9 3.9c1.48.7 3.3 1.06 5.48 1.06 1.97 0 3.45-.3 4.47-.92a2.89 2.89 0 001.56-2.62c0-.83-.5-1.52-1.47-2.07-.95-.55-2.67-1.07-5.15-1.56a31.76 31.76 0 01-6.86-2.07 8.7 8.7 0 01-3.68-2.95 7.7 7.7 0 01-1.15-4.32c0-1.81.5-3.44 1.47-4.88a9.68 9.68 0 014.28-3.45 16.6 16.6 0 016.67-1.24z",
+                      "M48.17 41.12V46H26.78V16.96h6.08v24.16h15.3zM64.76 16.52c2.85 0 5.31.6 7.4 1.8a11.86 11.86 0 014.83 5.2 17.25 17.25 0 011.72 7.96c0 3.08-.57 5.75-1.72 8a11.9 11.9 0 01-4.84 5.16 14.53 14.53 0 01-7.39 1.8c-2.84 0-5.32-.6-7.43-1.8a12.18 12.18 0 01-4.89-5.15 17.9 17.9 0 01-1.67-8.01c0-3.08.56-5.73 1.67-7.96a12.12 12.12 0 014.89-5.2c2.1-1.2 4.59-1.8 7.43-1.8zm0 4.97c-2.46 0-4.37.87-5.72 2.6-1.32 1.7-1.98 4.16-1.98 7.39 0 3.23.66 5.7 1.98 7.44 1.35 1.7 3.26 2.55 5.72 2.55 2.44 0 4.31-.85 5.63-2.55 1.35-1.73 2.03-4.21 2.03-7.44 0-3.23-.68-5.7-2.03-7.4-1.32-1.72-3.2-2.59-5.63-2.59zM109.78 46h-6.95L92.67 28.93l-2.51-4.89h-.05l.18 5.15V46h-5.46V16.96h6.91l10.17 17.03 2.5 4.93h.1l-.18-5.15V16.96h5.45V46zM129.9 16.52c2.85 0 5.31.6 7.4 1.8a11.85 11.85 0 014.83 5.2 17.25 17.25 0 011.72 7.96c0 3.08-.57 5.75-1.72 8a11.9 11.9 0 01-4.84 5.16 14.53 14.53 0 01-7.39 1.8c-2.84 0-5.32-.6-7.43-1.8a12.18 12.18 0 01-4.89-5.15 17.92 17.92 0 01-1.67-8.01c0-3.08.56-5.73 1.67-7.96a12.12 12.12 0 014.89-5.2c2.1-1.2 4.59-1.8 7.43-1.8zm0 4.97c-2.46 0-4.37.87-5.72 2.6-1.32 1.7-1.98 4.16-1.98 7.39 0 3.23.66 5.7 1.98 7.44 1.35 1.7 3.26 2.55 5.72 2.55 2.44 0 4.31-.85 5.63-2.55 1.35-1.73 2.03-4.21 2.03-7.44 0-3.23-.68-5.7-2.03-7.4-1.32-1.72-3.2-2.59-5.63-2.59zM162.16 16.96c3.38 0 6 .82 7.88 2.46 1.88 1.62 2.81 3.9 2.81 6.87 0 2.87-.93 5.12-2.81 6.73-1.88 1.61-4.5 2.42-7.88 2.42h-6.11V46h-6.08V16.96h12.2zm-.92 13.77c1.88 0 3.25-.36 4.13-1.1.88-.76 1.32-1.89 1.32-3.39 0-1.5-.44-2.6-1.31-3.34-.88-.73-2.26-1.1-4.14-1.1h-5.2v8.93h5.2zM190.96 16.52c2.85 0 5.31.6 7.4 1.8a11.86 11.86 0 014.83 5.2 17.25 17.25 0 011.72 7.96c0 3.08-.57 5.75-1.72 8a11.9 11.9 0 01-4.84 5.16 14.53 14.53 0 01-7.39 1.8c-2.84 0-5.32-.6-7.44-1.8a12.18 12.18 0 01-4.88-5.15 17.9 17.9 0 01-1.67-8.01c0-3.08.56-5.73 1.67-7.96a12.12 12.12 0 014.89-5.2c2.1-1.2 4.59-1.8 7.43-1.8zm0 4.97c-2.46 0-4.37.87-5.72 2.6-1.32 1.7-1.98 4.16-1.98 7.39 0 3.23.66 5.7 1.98 7.44 1.35 1.7 3.26 2.55 5.72 2.55 2.44 0 4.31-.85 5.63-2.55 1.35-1.73 2.03-4.21 2.03-7.44 0-3.23-.68-5.7-2.03-7.4-1.32-1.72-3.2-2.59-5.63-2.59zM232.42 41.12V46h-21.39V16.96h6.08v24.16h15.3zM245.07 35.13V46H239V35.13l-10.3-18.17h6.47l4.66 8.67 2.2 4.57 2.25-4.57 4.66-8.67h6.43l-10.3 18.17zM268.69 16.52c2.7 0 5.01.45 6.95 1.36 1.94.88 3.64 2.3 5.1 4.23l-4.18 4.09a8.04 8.04 0 00-3.03-3.52 8.87 8.87 0 00-4.8-1.19c-1.76 0-3.12.34-4.09 1.01a3 3 0 00-1.4 2.6c0 1 .48 1.79 1.44 2.38.97.58 2.72 1.1 5.24 1.54 2.64.5 4.74 1.11 6.3 1.84a7.78 7.78 0 013.38 2.78 7.15 7.15 0 011.1 4.09c0 1.79-.51 3.34-1.54 4.66-1 1.3-2.4 2.29-4.22 3-1.8.7-3.85 1.05-6.16 1.05-3.2 0-5.83-.44-7.88-1.32a11.74 11.74 0 01-4.93-4.1l3.61-4.3a9.5 9.5 0 003.74 3.74c1.4.67 3.15 1 5.24 1 1.87 0 3.3-.29 4.26-.87 1-.59 1.5-1.42 1.5-2.51 0-.8-.47-1.45-1.4-1.98-.92-.53-2.56-1.03-4.94-1.5a30.38 30.38 0 01-6.55-1.98 8.32 8.32 0 01-3.52-2.81 7.37 7.37 0 01-1.1-4.14 8.1 8.1 0 011.4-4.66c.95-1.41 2.31-2.51 4.1-3.3 1.82-.8 3.94-1.19 6.38-1.19zM308.51 21.84h-9.72V46h-6.08V21.84h-9.76v-4.88h25.56v4.88zM324.91 34.87h-5.45V46h-5.99V16.96h12.8c3.32 0 5.9.8 7.75 2.38 1.88 1.55 2.82 3.75 2.82 6.6 0 2.08-.52 3.82-1.54 5.23a8.48 8.48 0 01-4.4 3.04L338.55 46h-6.82l-6.82-11.13zm-5.45-4.62h6.02c1.76 0 3.05-.34 3.88-1.01.85-.7 1.27-1.78 1.27-3.22 0-1.43-.42-2.49-1.27-3.16-.83-.7-2.12-1.06-3.88-1.06h-6.02v8.45zM365.77 41.12V46h-22.4V16.96h21.79v4.88h-15.71v7.22h12.36v4.66h-12.36v7.4h16.32zM393.62 41.12V46h-22.4V16.96H393v4.88h-15.7v7.22h12.36v4.66h-12.37v7.4h16.33zM422.03 21.84h-9.72V46h-6.07V21.84h-9.77v-4.88h25.56v4.88zM436.78 16.52c2.7 0 5.02.45 6.96 1.36 1.93.88 3.63 2.3 5.1 4.23l-4.18 4.09a8.04 8.04 0 00-3.04-3.52 8.88 8.88 0 00-4.8-1.19c-1.75 0-3.12.34-4.08 1.01a3 3 0 00-1.41 2.6c0 1 .48 1.79 1.45 2.38.97.58 2.71 1.1 5.24 1.54 2.63.5 4.73 1.11 6.29 1.84a7.78 7.78 0 013.38 2.78 7.15 7.15 0 011.1 4.09c0 1.79-.5 3.34-1.54 4.66-1 1.3-2.4 2.29-4.22 3-1.79.7-3.84 1.05-6.16 1.05-3.2 0-5.82-.44-7.88-1.32a11.74 11.74 0 01-4.92-4.1l3.6-4.3a9.5 9.5 0 003.75 3.74c1.4.67 3.15 1 5.23 1 1.88 0 3.3-.29 4.27-.87 1-.59 1.5-1.42 1.5-2.51 0-.8-.48-1.45-1.41-1.98-.91-.53-2.56-1.03-4.93-1.5a30.36 30.36 0 01-6.56-1.98 8.31 8.31 0 01-3.52-2.81 7.36 7.36 0 01-1.1-4.14 8.1 8.1 0 011.41-4.66c.94-1.41 2.3-2.51 4.1-3.3 1.81-.8 3.94-1.19 6.37-1.19z",
                     fill: "#1A202C"
                   }
                 }),
                 _c("path", {
                   attrs: {
                     d:
-                      "M92.55 68.12h5.2c1.42 0 2.47.28 3.17.85.7.55 1.04 1.35 1.04 2.39 0 .66-.2 1.24-.6 1.73-.39.48-.95.78-1.67.9V74a3 3 0 011.9.93c.45.5.68 1.1.68 1.8 0 1.03-.37 1.84-1.12 2.41-.74.57-1.82.85-3.22.85h-5.38V68.12zm4.86 4.99c1.32 0 1.98-.51 1.98-1.53s-.66-1.53-1.98-1.53h-2.45v3.06h2.45zm.3 5.02c.66 0 1.16-.13 1.48-.4.34-.27.5-.66.5-1.17 0-.5-.16-.89-.5-1.15-.32-.26-.82-.4-1.48-.4h-2.75v3.12h2.75zM111.29 77.1h-4.58l-.97 2.9h-2.54l4.34-11.88h2.97L114.85 80h-2.57l-1-2.9zm-.62-1.83l-1.11-3.35-.54-1.8h-.04l-.5 1.76-1.15 3.39h3.34zM121.32 80h-2.9l-4.33-11.88h2.62l2.5 7.56.69 2.34.67-2.32 2.52-7.58h2.55L121.32 80zM132.96 77.1h-4.57l-.97 2.9h-2.54l4.34-11.88h2.97L136.52 80h-2.57l-.99-2.9zm-.61-1.83l-1.12-3.35-.54-1.8h-.03l-.5 1.76-1.16 3.39h3.35zM148.5 80h-2.85l-4.16-6.98-1.03-2h-.01l.07 2.1V80h-2.23V68.12h2.82l4.16 6.97 1.03 2.01h.03l-.07-2.1v-6.88h2.23V80zM161.76 76.72a4.6 4.6 0 01-1.85 2.6c-.89.57-1.95.86-3.19.86a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.68-3.26a5 5 0 011.98-2.12 6 6 0 013.03-.74c1.23 0 2.28.26 3.13.77a3.98 3.98 0 011.78 2.3l-2.25.96c-.2-.7-.5-1.22-.9-1.53-.4-.31-.96-.47-1.66-.47-1 0-1.8.36-2.37 1.07-.56.7-.85 1.71-.85 3.02 0 1.3.28 2.32.83 3.02a2.8 2.8 0 002.34 1.07c1.45 0 2.36-.7 2.74-2.11l2.28.68zM169.01 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.22-2.35.68-3.26a4.96 4.96 0 012-2.12c.86-.5 1.88-.74 3.04-.74zm0 2.03c-1 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.81 3.04c.55.7 1.33 1.05 2.34 1.05 1 0 1.76-.35 2.3-1.05.56-.7.83-1.72.83-3.04s-.27-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM184.88 83.02h-2.16V67.06h2.16v15.96zM202.23 78v2h-8.75V68.12h2.49V78h6.26zM209.02 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.69-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM227.44 80h-2.85l-4.16-6.98-1.02-2h-.02l.07 2.1V80h-2.23V68.12h2.83l4.15 6.97 1.03 2.01h.04l-.08-2.1v-6.88h2.24V80zM235.13 68.12c1.86 0 3.3.52 4.32 1.55 1.02 1.03 1.53 2.5 1.53 4.39 0 1.9-.51 3.36-1.53 4.4-1.02 1.02-2.46 1.54-4.32 1.54h-4.6V68.12h4.6zm-.13 9.9c1.13 0 1.97-.34 2.54-1 .57-.7.86-1.68.86-2.96s-.29-2.26-.86-2.93c-.57-.69-1.41-1.03-2.54-1.03h-1.98v7.92H235zM248.6 67.94c1.17 0 2.18.25 3.03.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.03.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.68-3.26a4.96 4.96 0 012-2.12c.87-.5 1.88-.74 3.04-.74zm0 2.03c-1 0-1.78.36-2.34 1.07-.54.7-.8 1.7-.8 3.02s.26 2.33.8 3.04c.56.7 1.34 1.05 2.34 1.05 1 0 1.77-.35 2.3-1.05.56-.7.84-1.72.84-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM267.02 80h-2.84l-4.16-6.98-1.03-2h-.01l.07 2.1V80h-2.23V68.12h2.82l4.16 6.97 1.03 2.01h.03l-.07-2.1v-6.88h2.23V80zM288.55 80h-2.23v-6.2l.1-3.47h-.03l-3.3 9.67h-2.03l-3.28-9.67h-.03l.12 3.48V80h-2.25V68.12h3.6l2.15 6.48.75 2.68h.04l.77-2.66 2.13-6.5h3.49V80zM296.77 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.69-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM315.19 80h-2.85l-4.16-6.98-1.02-2h-.02l.07 2.1V80h-2.23V68.12h2.83l4.15 6.97L313 77.1h.04l-.08-2.1v-6.88h2.24V80zM323.42 67.94c1.16 0 2.17.25 3.02.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.05-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.8.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM336.61 68.12c1.38 0 2.46.34 3.23 1a3.5 3.5 0 011.15 2.82c0 1.17-.39 2.09-1.15 2.75a4.8 4.8 0 01-3.23.99h-2.5V80h-2.48V68.12h4.98zm-.37 5.63c.76 0 1.33-.15 1.69-.45.36-.3.54-.77.54-1.38 0-.61-.18-1.07-.54-1.37-.36-.3-.93-.45-1.7-.45h-2.12v3.65h2.13zM348.4 67.94c1.16 0 2.17.25 3.02.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.03.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.03-.74zm0 2.03c-1.01 0-1.8.36-2.34 1.07-.55.7-.81 1.7-.81 3.02s.26 2.33.8 3.04c.56.7 1.34 1.05 2.34 1.05 1 0 1.77-.35 2.3-1.05.56-.7.84-1.72.84-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM365.36 78v2h-8.75V68.12h2.48V78h6.27zM370.53 75.55V80h-2.48v-4.45l-4.22-7.43h2.65l1.9 3.55.9 1.87.93-1.87 1.9-3.55h2.63l-4.21 7.43zM385.7 67.94c1.1 0 2.05.19 2.84.56.8.36 1.49.93 2.09 1.73l-1.71 1.67a3.29 3.29 0 00-1.25-1.44 3.63 3.63 0 00-1.96-.49 2.9 2.9 0 00-1.67.42c-.39.26-.58.62-.58 1.06 0 .4.2.73.6.97.4.24 1.1.45 2.14.63 1.08.2 1.94.46 2.57.76.64.3 1.1.68 1.39 1.13.3.45.45 1 .45 1.68 0 .73-.21 1.36-.63 1.9-.4.53-.99.94-1.73 1.23-.73.29-1.57.43-2.52.43-1.3 0-2.38-.18-3.22-.54a4.8 4.8 0 01-2.02-1.67l1.48-1.77c.44.73.95 1.24 1.53 1.53.57.28 1.29.42 2.14.42.77 0 1.35-.12 1.75-.36.4-.24.6-.59.6-1.03 0-.32-.18-.6-.57-.81a7.24 7.24 0 00-2.01-.61c-1.12-.23-2.01-.5-2.69-.81a3.4 3.4 0 01-1.44-1.15 3.01 3.01 0 01-.44-1.7c0-.7.19-1.34.57-1.9.38-.58.94-1.03 1.67-1.35a6.5 6.5 0 012.62-.49zM401.99 70.12H398V80h-2.49v-9.88h-4v-2H402v2zM408.7 75.45h-2.24V80h-2.44V68.12h5.23c1.36 0 2.42.32 3.17.97a3.3 3.3 0 011.15 2.7c0 .85-.2 1.57-.63 2.14-.42.58-1.02 1-1.8 1.25l3.13 4.82h-2.78l-2.8-4.55zm-2.24-1.9h2.47c.72 0 1.25-.13 1.58-.4.35-.3.53-.73.53-1.32 0-.59-.18-1.02-.53-1.3-.33-.29-.86-.43-1.58-.43h-2.47v3.46zM425.41 78v2h-9.16V68.12h8.9v2h-6.42v2.95h5.06v1.9h-5.06V78h6.68zM436.8 78v2h-9.16V68.12h8.91v2h-6.43v2.95h5.06v1.9h-5.06V78h6.68zM448.43 70.12h-3.98V80h-2.49v-9.88h-4v-2h10.47v2zM454.46 67.94c1.1 0 2.05.19 2.84.56.8.36 1.5.93 2.1 1.73l-1.72 1.67a3.29 3.29 0 00-1.24-1.44 3.63 3.63 0 00-1.96-.49 2.9 2.9 0 00-1.68.42c-.38.26-.57.62-.57 1.06 0 .4.2.73.6.97.39.24 1.1.45 2.13.63 1.08.2 1.94.46 2.58.76.63.3 1.1.68 1.38 1.13.3.45.45 1 .45 1.68 0 .73-.2 1.36-.63 1.9-.4.53-.98.94-1.72 1.23-.74.29-1.58.43-2.52.43-1.31 0-2.39-.18-3.23-.54a4.8 4.8 0 01-2.01-1.67l1.47-1.77c.45.73.96 1.24 1.53 1.53.58.28 1.3.42 2.15.42.76 0 1.35-.12 1.74-.36.41-.24.61-.59.61-1.03 0-.32-.19-.6-.57-.81a7.24 7.24 0 00-2.02-.61c-1.11-.23-2-.5-2.68-.81a3.4 3.4 0 01-1.44-1.15 3.01 3.01 0 01-.45-1.7c0-.7.2-1.34.58-1.9.38-.58.94-1.03 1.67-1.35a6.5 6.5 0 012.61-.49z",
+                      "M83.55 68.12h5.2c1.42 0 2.47.28 3.17.85.7.55 1.04 1.35 1.04 2.39 0 .66-.2 1.24-.6 1.73-.39.48-.95.78-1.67.9V74a3 3 0 011.9.93c.45.5.68 1.1.68 1.8 0 1.03-.37 1.84-1.12 2.41-.74.57-1.82.85-3.22.85h-5.38V68.12zm4.86 4.99c1.32 0 1.98-.51 1.98-1.53s-.66-1.53-1.98-1.53h-2.45v3.06h2.45zm.3 5.02c.66 0 1.16-.13 1.48-.4.34-.27.5-.66.5-1.17 0-.5-.16-.89-.5-1.15-.32-.26-.82-.4-1.48-.4h-2.75v3.12h2.75zM102.29 77.1H97.7l-.97 2.9H94.2l4.34-11.88h2.97L105.85 80h-2.57l-1-2.9zm-.62-1.83l-1.11-3.35-.54-1.8h-.04l-.5 1.76-1.15 3.39h3.34zM112.32 80h-2.9l-4.33-11.88h2.62l2.5 7.56.69 2.34.67-2.32 2.52-7.58h2.55L112.32 80zM123.96 77.1h-4.57l-.97 2.9h-2.54l4.34-11.88h2.97L127.52 80h-2.57l-.99-2.9zm-.61-1.83l-1.12-3.35-.54-1.8h-.03l-.5 1.76-1.16 3.39h3.35zM139.5 80h-2.85l-4.16-6.98-1.03-2h-.01l.07 2.1V80h-2.23V68.12h2.82l4.16 6.97 1.03 2.01h.03l-.07-2.1v-6.88h2.23V80zM152.76 76.72a4.6 4.6 0 01-1.85 2.6c-.89.57-1.95.86-3.19.86a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.68-3.26a5 5 0 011.98-2.12 6 6 0 013.03-.74c1.23 0 2.28.26 3.13.77a3.98 3.98 0 011.78 2.3l-2.25.96c-.2-.7-.5-1.22-.9-1.53-.4-.31-.96-.47-1.66-.47-1 0-1.8.36-2.37 1.07-.56.7-.85 1.71-.85 3.02 0 1.3.28 2.32.83 3.02a2.8 2.8 0 002.34 1.07c1.45 0 2.36-.7 2.74-2.11l2.28.68zM160.01 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.22-2.35.68-3.26a4.96 4.96 0 012-2.12c.86-.5 1.88-.74 3.04-.74zm0 2.03c-1 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.81 3.04c.55.7 1.33 1.05 2.34 1.05 1 0 1.76-.35 2.3-1.05.56-.7.83-1.72.83-3.04s-.27-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM175.88 83.02h-2.16V67.06h2.16v15.96zM193.23 78v2h-8.75V68.12h2.49V78h6.26zM200.02 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.69-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM218.44 80h-2.85l-4.16-6.98-1.02-2h-.02l.07 2.1V80h-2.23V68.12h2.83l4.15 6.97 1.03 2.01h.04l-.08-2.1v-6.88h2.24V80zM226.13 68.12c1.86 0 3.3.52 4.32 1.55 1.02 1.03 1.53 2.5 1.53 4.39 0 1.9-.51 3.36-1.53 4.4-1.02 1.02-2.46 1.54-4.32 1.54h-4.6V68.12h4.6zm-.13 9.9c1.13 0 1.97-.34 2.54-1 .57-.7.86-1.68.86-2.96s-.29-2.26-.86-2.93c-.57-.69-1.41-1.03-2.54-1.03h-1.98v7.92H226zM239.6 67.94c1.17 0 2.18.25 3.03.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.03.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.68-3.26a4.96 4.96 0 012-2.12c.87-.5 1.88-.74 3.04-.74zm0 2.03c-1 0-1.78.36-2.34 1.07-.54.7-.8 1.7-.8 3.02s.26 2.33.8 3.04c.56.7 1.34 1.05 2.34 1.05 1 0 1.77-.35 2.3-1.05.56-.7.84-1.72.84-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM258.02 80h-2.84l-4.16-6.98-1.03-2h-.01l.07 2.1V80h-2.23V68.12h2.82l4.16 6.97 1.03 2.01h.03l-.07-2.1v-6.88h2.23V80zM279.55 80h-2.23v-6.2l.1-3.47h-.03l-3.3 9.67h-2.03l-3.28-9.67h-.03l.12 3.48V80h-2.25V68.12h3.6l2.15 6.48.75 2.68h.04l.77-2.66 2.13-6.5h3.49V80zM287.77 67.94c1.16 0 2.17.25 3.02.74.87.49 1.53 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.69-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.79.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM306.19 80h-2.85l-4.16-6.98-1.02-2h-.02l.07 2.1V80h-2.23V68.12h2.83l4.15 6.97L304 77.1h.04l-.08-2.1v-6.88h2.24V80zM314.42 67.94c1.16 0 2.17.25 3.02.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.02.74a6.04 6.04 0 01-3.05-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.04-.74zm0 2.03c-1.01 0-1.8.36-2.34 1.07-.54.7-.81 1.7-.81 3.02s.27 2.33.8 3.04c.56.7 1.34 1.05 2.35 1.05 1 0 1.76-.35 2.3-1.05.55-.7.83-1.72.83-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM327.61 68.12c1.38 0 2.46.34 3.23 1a3.5 3.5 0 011.15 2.82c0 1.17-.39 2.09-1.15 2.75a4.8 4.8 0 01-3.23.99h-2.5V80h-2.48V68.12h4.98zm-.37 5.63c.76 0 1.33-.15 1.69-.45.36-.3.54-.77.54-1.38 0-.61-.18-1.07-.54-1.37-.36-.3-.93-.45-1.7-.45h-2.12v3.65h2.13zM339.4 67.94c1.16 0 2.17.25 3.02.74.86.49 1.52 1.2 1.98 2.12.47.91.7 2 .7 3.26 0 1.26-.23 2.35-.7 3.28a4.87 4.87 0 01-1.98 2.1c-.85.5-1.86.74-3.03.74a6.04 6.04 0 01-3.04-.74 4.98 4.98 0 01-2-2.1 7.33 7.33 0 01-.68-3.28c0-1.26.23-2.35.69-3.26a4.96 4.96 0 012-2.12c.86-.5 1.87-.74 3.03-.74zm0 2.03c-1.01 0-1.8.36-2.34 1.07-.55.7-.81 1.7-.81 3.02s.26 2.33.8 3.04c.56.7 1.34 1.05 2.34 1.05 1 0 1.77-.35 2.3-1.05.56-.7.84-1.72.84-3.04s-.28-2.33-.83-3.02a2.73 2.73 0 00-2.3-1.07zM356.36 78v2h-8.75V68.12h2.48V78h6.27zM361.53 75.55V80h-2.48v-4.45l-4.22-7.43h2.65l1.9 3.55.9 1.87.93-1.87 1.9-3.55h2.63l-4.21 7.43zM376.7 67.94c1.1 0 2.05.19 2.84.56.8.36 1.49.93 2.09 1.73l-1.71 1.67a3.29 3.29 0 00-1.25-1.44 3.63 3.63 0 00-1.96-.49 2.9 2.9 0 00-1.67.42c-.39.26-.58.62-.58 1.06 0 .4.2.73.6.97.4.24 1.1.45 2.14.63 1.08.2 1.94.46 2.57.76.64.3 1.1.68 1.39 1.13.3.45.45 1 .45 1.68 0 .73-.21 1.36-.63 1.9-.4.53-.99.94-1.73 1.23-.73.29-1.57.43-2.52.43-1.3 0-2.38-.18-3.22-.54a4.8 4.8 0 01-2.02-1.67l1.48-1.77c.44.73.95 1.24 1.53 1.53.57.28 1.29.42 2.14.42.77 0 1.35-.12 1.75-.36.4-.24.6-.59.6-1.03 0-.32-.18-.6-.57-.81a7.24 7.24 0 00-2.01-.61c-1.12-.23-2.01-.5-2.69-.81a3.4 3.4 0 01-1.44-1.15 3.01 3.01 0 01-.44-1.7c0-.7.19-1.34.57-1.9.38-.58.94-1.03 1.67-1.35a6.5 6.5 0 012.62-.49zM392.99 70.12H389V80h-2.49v-9.88h-4v-2H393v2zM399.7 75.45h-2.24V80h-2.44V68.12h5.23c1.36 0 2.42.32 3.17.97a3.3 3.3 0 011.15 2.7c0 .85-.2 1.57-.63 2.14-.42.58-1.02 1-1.8 1.25l3.13 4.82h-2.78l-2.8-4.55zm-2.24-1.9h2.47c.72 0 1.25-.13 1.58-.4.35-.3.53-.73.53-1.32 0-.59-.18-1.02-.53-1.3-.33-.29-.86-.43-1.58-.43h-2.47v3.46zM416.41 78v2h-9.16V68.12h8.9v2h-6.42v2.95h5.06v1.9h-5.06V78h6.68zM427.8 78v2h-9.16V68.12h8.91v2h-6.43v2.95h5.06v1.9h-5.06V78h6.68zM439.43 70.12h-3.98V80h-2.49v-9.88h-4v-2h10.47v2zM445.46 67.94c1.1 0 2.05.19 2.84.56.8.36 1.5.93 2.1 1.73l-1.72 1.67a3.29 3.29 0 00-1.24-1.44 3.63 3.63 0 00-1.96-.49 2.9 2.9 0 00-1.68.42c-.38.26-.57.62-.57 1.06 0 .4.2.73.6.97.39.24 1.1.45 2.13.63 1.08.2 1.94.46 2.58.76.63.3 1.1.68 1.38 1.13.3.45.45 1 .45 1.68 0 .73-.2 1.36-.63 1.9-.4.53-.98.94-1.72 1.23-.74.29-1.58.43-2.52.43-1.31 0-2.39-.18-3.23-.54a4.8 4.8 0 01-2.01-1.67l1.47-1.77c.45.73.96 1.24 1.53 1.53.58.28 1.3.42 2.15.42.76 0 1.35-.12 1.74-.36.41-.24.61-.59.61-1.03 0-.32-.19-.6-.57-.81a7.24 7.24 0 00-2.02-.61c-1.11-.23-2-.5-2.68-.81a3.4 3.4 0 01-1.44-1.15 3.01 3.01 0 01-.45-1.7c0-.7.2-1.34.58-1.9.38-.58.94-1.03 1.67-1.35a6.5 6.5 0 012.61-.49z",
                     fill: "#C53030"
                   }
                 })
@@ -14343,9 +15009,11 @@ var app = new Vue({
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AboutModal.vue?vue&type=template&id=7b6e33cb& */ "./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&");
+/* harmony import */ var _AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true& */ "./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true&");
 /* harmony import */ var _AboutModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AboutModal.vue?vue&type=script&lang=js& */ "./resources/js/components/AboutModal.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& */ "./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -14353,13 +15021,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AboutModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "7b6e33cb",
   null
   
 )
@@ -14385,19 +15053,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/vue-loader/lib??vue-loader-options!./AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=style&index=0&id=7b6e33cb&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_style_index_0_id_7b6e33cb_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true& ***!
+  \*******************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AboutModal.vue?vue&type=template&id=7b6e33cb& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutModal.vue?vue&type=template&id=7b6e33cb&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutModal_vue_vue_type_template_id_7b6e33cb_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

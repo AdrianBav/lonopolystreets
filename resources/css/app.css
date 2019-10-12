@@ -86,6 +86,11 @@
     color: #010e44;
 }
 
+/* Model Backdrop */
+.bg-semi-75 {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
 /* Bootstrap 4, Custom Range */
 .custom-range {
     width: 100%;

@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Green Group',
-                'description' => "All have a background in retail and commercial properties. There is no actual Bond Street; it is split into New Bond Street to the north and Old Bond Street to the south.",
+                'description' => "All of these streets have a background in retail and commercial properties. There is no actual Bond Street; it is split into New Bond Street to the north and Old Bond Street to the south.",
                 'streets' => [
                     [
                         'name' => 'Bond Street',
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Yellow Group',
-                'description' => "All have an entertainment and nightlife-based theme; Leicester Square is known for cinemas and theatres, Coventry Street for clubs and restaurants, and Piccadilly for hotels.",
+                'description' => "Streets with an entertainment and nightlife-based theme; Leicester Square is known for cinemas and theatres, Coventry Street for clubs and restaurants, and Piccadilly for hotels.",
                 'streets' => [
                     [
                         'name' => 'Piccadilly',
@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Orange Group',
-                'description' => "All related to locations dealing with the police and law. There is no actual Marlborough Street in this part of London; the square on the board was mis-named after the Marlborough Street Magistrates Court.",
+                'description' => "Locations dealing with the police and law. There is no actual Marlborough Street in this part of London; the square on the board was mis-named after the Marlborough Street Magistrates Court.",
                 'streets' => [
                     [
                         'name' => 'Vine Street',
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Pink Group',
-                'description' => "All converge at Trafalgar Square.",
+                'description' => "These streets all converge at Trafalgar Square.",
                 'streets' => [
                     [
                         'name' => "Northumberl'd Ave.",
@@ -177,7 +177,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Light Blue Group',
-                'description' => "All part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
+                'description' => "Part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
                 'streets' => [
                     [
                         'name' => 'Pentonville Road',
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Utilities',
-                'description' => "Non-specific locations.",
+                'description' => "These utilities have non-specific locations. They are included just for fun and completion of the Monopoly title deed cards.",
                 'streets' => [
                     [
                         'name' => 'Electric Company',
