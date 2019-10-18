@@ -46,19 +46,19 @@
                     <span class="block text-sm font-semibold text-gray-500">Property Type</span>
                     <div class="sm:flex sm:-mx-2 lg:block lg:mx-0">
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="all" v-model="selectedPropertyType">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700 text-red-600" type="radio" value="all" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">All</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="property" v-model="selectedPropertyType">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700 text-red-600" type="radio" value="property" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Property</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="station" v-model="selectedPropertyType">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700 text-red-600" type="radio" value="station" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Station</span>
                         </label>
                         <label class="mt-3 sm:w-1/4 sm:px-2 flex items-center lg:w-full lg:px-0">
-                            <input class="form-radio bg-gray-900 focus:bg-gray-700" type="radio" value="utility" v-model="selectedPropertyType">
+                            <input class="form-radio bg-gray-900 focus:bg-gray-700 text-red-600" type="radio" value="utility" v-model="selectedPropertyType">
                             <span class="ml-2 text-white">Utility</span>
                         </label>
                     </div>
@@ -69,7 +69,7 @@
                     <span class="block text-sm font-semibold text-gray-500">Postcode</span>
                     <div class="sm:flex sm:-mx-2 sm:flex-wrap">
                         <label v-for="(postcode, i) in postcodes" :key="i" class="mt-3 flex items-center sm:w-1/4 sm:px-2 lg:w-1/2 xl:w-full">
-                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700" type="checkbox" :value="postcode" v-model="selectedPostcode">
+                            <input class="form-checkbox bg-gray-900 focus:bg-gray-700 text-red-600" type="checkbox" :value="postcode" v-model="selectedPostcode">
                             <span class="ml-2 text-white">{{ postcode }}</span>
                         </label>
                     </div>

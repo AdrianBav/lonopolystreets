@@ -1862,7 +1862,8 @@ var render = function() {
               _c(
                 "button",
                 {
-                  staticClass: "bg-gray-500 text-white px-4 py-2 rounded",
+                  staticClass:
+                    "bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded",
                   attrs: { type: "button" },
                   on: { click: _vm.dismiss }
                 },
@@ -2387,7 +2388,8 @@ var render = function() {
                           expression: "selectedPropertyType"
                         }
                       ],
-                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      staticClass:
+                        "form-radio bg-gray-900 focus:bg-gray-700 text-red-600",
                       attrs: { type: "radio", value: "all" },
                       domProps: {
                         checked: _vm._q(_vm.selectedPropertyType, "all")
@@ -2421,7 +2423,8 @@ var render = function() {
                           expression: "selectedPropertyType"
                         }
                       ],
-                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      staticClass:
+                        "form-radio bg-gray-900 focus:bg-gray-700 text-red-600",
                       attrs: { type: "radio", value: "property" },
                       domProps: {
                         checked: _vm._q(_vm.selectedPropertyType, "property")
@@ -2455,7 +2458,8 @@ var render = function() {
                           expression: "selectedPropertyType"
                         }
                       ],
-                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      staticClass:
+                        "form-radio bg-gray-900 focus:bg-gray-700 text-red-600",
                       attrs: { type: "radio", value: "station" },
                       domProps: {
                         checked: _vm._q(_vm.selectedPropertyType, "station")
@@ -2489,7 +2493,8 @@ var render = function() {
                           expression: "selectedPropertyType"
                         }
                       ],
-                      staticClass: "form-radio bg-gray-900 focus:bg-gray-700",
+                      staticClass:
+                        "form-radio bg-gray-900 focus:bg-gray-700 text-red-600",
                       attrs: { type: "radio", value: "utility" },
                       domProps: {
                         checked: _vm._q(_vm.selectedPropertyType, "utility")
@@ -2545,7 +2550,7 @@ var render = function() {
                           }
                         ],
                         staticClass:
-                          "form-checkbox bg-gray-900 focus:bg-gray-700",
+                          "form-checkbox bg-gray-900 focus:bg-gray-700 text-red-600",
                         attrs: { type: "checkbox" },
                         domProps: {
                           value: postcode,

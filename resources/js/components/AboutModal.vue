@@ -16,7 +16,7 @@
                 </p>
 
                 <div class="text-center">
-                    <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded" @click="dismiss">
+                    <button type="button" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded" @click="dismiss">
                         Thanks!
                     </button>
                 </div>

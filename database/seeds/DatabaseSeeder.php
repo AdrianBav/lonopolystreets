@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
         return [
             [
                 'name' => 'Dark Blue Group',
-                'description' => "Mayfair is not a street, but a location in London (between Piccadilly, Regent Street, Oxford Street and Park Lane). The most expensive square on the board, and in reality.",
+                'description' => "Mayfair is not a street, but an area in the West End of London between Oxford Street, Regent Street, Piccadilly and Park Lane. It is one of the most expensive districts in London and the world.",
                 'streets' => [
                     [
                         'name' => 'Mayfair',
@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Green Group',
-                'description' => "All of these streets have a background in retail and commercial properties. There is no actual Bond Street; it is split into New Bond Street to the north and Old Bond Street to the south.",
+                'description' => "All of these streets have a background in retail and commercial properties. Bond Street has always been divided into two sections: Old Bond Street to the south and New Bond Street to the north.",
                 'streets' => [
                     [
                         'name' => 'Bond Street',
@@ -81,7 +81,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Yellow Group',
-                'description' => "Streets with an entertainment and nightlife-based theme; Leicester Square is known for cinemas and theatres, Coventry Street for clubs and restaurants, and Piccadilly for hotels.",
+                'description' => "Entertainment and nightlife are the themes of these streets. Leicester Square is known for cinemas and theatres, Coventry Street for clubs and restaurants, and Piccadilly for hotels.",
                 'streets' => [
                     [
                         'name' => 'Piccadilly',
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Red Group',
-                'description' => "All adjacent to each other as part of the A4 road, a major road running west from Central London.",
+                'description' => "The streets in this group are all adjacent to one another as part of the A4 road, a major road running west from Central London.",
                 'streets' => [
                     [
                         'name' => 'Trafalgar Square',
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Pink Group',
-                'description' => "These streets all converge at Trafalgar Square.",
+                'description' => "All three streets converge at Trafalgar Square.",
                 'streets' => [
                     [
                         'name' => "Northumberl'd Ave.",
@@ -177,7 +177,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Light Blue Group',
-                'description' => "Part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
+                'description' => "The group are part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
                 'streets' => [
                     [
                         'name' => 'Pentonville Road',
