@@ -7,8 +7,15 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AdrianBav/traffic"
+        }
+    ],
     "require": {
         "php": "^7.2",
+        "adrianbav/traffic": "dev-master",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0"
