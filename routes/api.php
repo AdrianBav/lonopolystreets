@@ -13,10 +13,10 @@
 
 Route::middleware('auth:api')->get('/meta', function () {
     return [
-        'item1' => 'has %d streets',
+        'item1' => '%d properties',
         'number1' => 24,
-        'item2' => 'with %d photos',
+        'item2' => '%d thumbnails',
         'number2' => 24,
-        'info' => 'ALL streets',
+        'info' => 'ALL properties',
     ];
 });
