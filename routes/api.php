@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->get('/meta', function () {
+    return [
+        'item1' => 'has %d streets',
+        'number1' => 24,
+        'item2' => 'with %d photos',
+        'number2' => 24,
+        'info' => 'ALL streets',
+    ];
 });
