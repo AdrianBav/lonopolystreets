@@ -129,7 +129,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Orange Group',
-                'description' => "Locations dealing with the police and law. There is no actual Marlborough Street in this part of London; the square on the board was mis-named after the Marlborough Street Magistrates Court.",
+                'description' => "Locations dealing with the police and law. There is no actual Marlborough Street in this part of London, only a Great Marlborough Street; the square on the board was mis-named after the Marlborough Street Magistrates Court.",
                 'streets' => [
                     [
                         'name' => 'Vine Street',
@@ -177,7 +177,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Light Blue Group',
-                'description' => "The group are part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
+                'description' => "This groups streets are part of the London Inner Ring Road, this section of which opened in 1756 as the New Road. From west to east the road runs as Euston Road to King's Cross, then Pentonville Road to the Angel, Islington. The Angel is a former pub, not a street. It was a Lyons Corner House in 1935.",
                 'streets' => [
                     [
                         'name' => 'Pentonville Road',
