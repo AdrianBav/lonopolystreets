@@ -2,6 +2,8 @@
 
 use App\Group;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,6 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+        DB::table('streets')->truncate();
+        DB::table('groups')->truncate();
+        Schema::enableForeignKeyConstraints();
+
         foreach ($this->groupsAndStreets() as $groupAttributes) {
             $group = Group::create([
                 'name' => $groupAttributes['name'],
@@ -30,9 +37,9 @@ class DatabaseSeeder extends Seeder
     }
 
     /**
-     * [name description]
+     * Group and street definitions.
      *
-     * @return  [type]
+     * @return  array
      */
     private function groupsAndStreets()
     {
